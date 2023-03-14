@@ -1,11 +1,31 @@
 import "the-new-css-reset/css/reset.css"
 import './rootCss.scss'
 import './font.css'
+import Lenis from "@studio-freight/lenis";
+import AboutPage from "./AboutPage/AboutPage";
+
+const lenis = new Lenis(
+    {
+        // lerp: 0.01,
+        smooth: true,
+        direction: "vertical"
+    })
+
+// lenis.on('scroll', (e) => {
+//     console.log(e.current)
+// })
+
+function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
 
 function App() {
     return (
         <div className="App">
-            <h1>现在是离国庆假期还有天离12号发工资还有摸鱼时间专心摸鱼停止打工摸鱼重要的是心态开始外国摸鱼人里克·鲁宾链接周末单休周末双休清明节劳动节端午节国庆节离5号发工资还有离10号发工资还有12152530</h1>
+            <AboutPage />
         </div>
     );
 }
