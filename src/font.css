@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'cn206';
+	src: url('../src/fonts/CN206.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'kerozene';
+	src: url('../src/fonts/KEROZENE.otf') format('opentype');
+}
