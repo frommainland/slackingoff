@@ -14,27 +14,35 @@ const ALink = ({ text, link }) => {
 }
 
 const memeArr = [1, 2, 3, 4, 5, 6, 7]
+// const TopLeft = [
+// 	['80%', '0%'],
+// 	['100%', '40%'],
+// 	['180%', '20%'],
+// 	['240%', '140%'],
+// 	['120%', '210%'],
+// 	['95%', '290%'],
+// 	['120%', '400%'],
+// ]
 const TopLeft = [
-	['100%', '0%'],
-	['120%', '40%'],
-	['220%', '20%'],
-	['240%', '140%'],
-	['160%', '210%'],
-	['115%', '290%'],
-	['210%', '400%'],
+	['0%', '0%'],
+	['25%', '50%'],
+	['130%', '20%'],
+	['140%', '140%'],
+	['64%', '210%'],
+	['16%', '295%'],
+	['120%', '400%'],
 ]
 
 const MemeImage = ({ constraintsRef, item, top, left }) => {
 	return (
 		<motion.div
 			className="meme"
-			drag
-			dragConstraints={constraintsRef}
-			dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
-			dragElastic={1}
-			whileTap={{ cursor: 'grabbing' }}
-			dragMomentum={false}
 			style={{ y: top, x: left }}
+			drag
+			// dragConstraints={constraintsRef}
+			dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
+			dragElastic={0.5}
+			dragMomentum={false}
 		>
 			<div className="meme-header">摸鱼人表情包 0{item}</div>
 			<img
@@ -71,7 +79,7 @@ const AboutPage = () => {
 	}, [])
 
 	return (
-		<main id="content-wrap" ref={constraintsRef}>
+		<main id="content-wrap">
 			<section className="top-start">
 				<p>这是2023年学习react做的第二个项目。</p>
 				<p>
@@ -105,17 +113,19 @@ const AboutPage = () => {
 						网站后半分的gif素材都是外国的摸鱼人，为什么没有祖国的摸鱼人？我能搜索到的绝大部分是表情包，非常可爱，但是没有太多变化。
 					</p>
 				</div>
-				{memeArr.map((item, index) => {
-					return (
-						<MemeImage
-							constraintsRef={constraintsRef}
-							key={index}
-							item={item}
-							top={TopLeft[index][0]}
-							left={TopLeft[index][1]}
-						/>
-					)
-				})}
+				<div className="meme-wrap" ref={constraintsRef}>
+					{memeArr.map((item, index) => {
+						return (
+							<MemeImage
+								constraintsRef={constraintsRef}
+								key={index}
+								item={item}
+								top={TopLeft[index][0]}
+								left={TopLeft[index][1]}
+							/>
+						)
+					})}
+				</div>
 			</section>
 			<section className="content-wrap">
 				<div className="title">
