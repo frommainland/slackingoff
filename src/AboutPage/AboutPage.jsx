@@ -13,6 +13,40 @@ const ALink = ({ text, link }) => {
 	)
 }
 
+const memeArr = [1, 2, 3, 4, 5, 6, 7]
+const TopLeft = [
+	['100%', '0%'],
+	['120%', '40%'],
+	['220%', '20%'],
+	['240%', '140%'],
+	['160%', '210%'],
+	['115%', '290%'],
+	['210%', '400%'],
+]
+
+const MemeImage = ({ constraintsRef, item, top, left }) => {
+	return (
+		<motion.div
+			className="meme"
+			drag
+			dragConstraints={constraintsRef}
+			dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
+			dragElastic={1}
+			whileTap={{ cursor: 'grabbing' }}
+			dragMomentum={false}
+			style={{ y: top, x: left }}
+		>
+			<div className="meme-header">摸鱼人表情包 0{item}</div>
+			<img
+				src={require(`../images/meme-${item}.jpg`)}
+				alt=""
+				className="meme-image"
+				draggable="false"
+			/>
+		</motion.div>
+	)
+}
+
 const AboutPage = () => {
 	// const { scrollY } = useScroll()
 
@@ -20,24 +54,24 @@ const AboutPage = () => {
 	// 	console.log('Page scroll: ', latest)
 	// })
 	const startImgRef = useRef(null)
+	const constraintsRef = useRef(null)
 	useEffect(() => {
 		const el = startImgRef.current
 		gsap.to(el, {
 			rotate: 5,
 			scale: 1.5,
-			y: -200,
+			y: -150,
 			scrollTrigger: {
 				trigger: el,
 				start: 'top, 80%',
-				end: 'top, 30%',
-				markers: true,
+				end: 'top, 20%',
 				scrub: 1,
 			},
 		})
 	}, [])
 
 	return (
-		<main id="content-wrap">
+		<main id="content-wrap" ref={constraintsRef}>
 			<section className="top-start">
 				<p>这是2023年学习react做的第二个项目。</p>
 				<p>
@@ -55,18 +89,33 @@ const AboutPage = () => {
 				<div className="content">
 					<p>这张群聊的截图就是这个项目的开始。</p>
 				</div>
-				<img src={require('../images/start.png')} ref={startImgRef} />
+				<img
+					src={require('../images/start.png')}
+					ref={startImgRef}
+					className="start-image"
+				/>
 			</section>
 			<section className="content-wrap">
 				<div className="title">
 					<span>02</span>
 					<p>外国摸鱼人</p>
 				</div>
-				<div className="content">
+				<div className="content meme-space">
 					<p>
 						网站后半分的gif素材都是外国的摸鱼人，为什么没有祖国的摸鱼人？我能搜索到的绝大部分是表情包，非常可爱，但是没有太多变化。
 					</p>
 				</div>
+				{memeArr.map((item, index) => {
+					return (
+						<MemeImage
+							constraintsRef={constraintsRef}
+							key={index}
+							item={item}
+							top={TopLeft[index][0]}
+							left={TopLeft[index][1]}
+						/>
+					)
+				})}
 			</section>
 			<section className="content-wrap">
 				<div className="title">

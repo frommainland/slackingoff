@@ -30,17 +30,21 @@
 	}
 	.content-wrap {
 		margin-bottom: var(--step-8);
+		position: relative;
 		img {
 			border-radius: 1em;
 			display: block;
 			margin: auto;
+		}
+		img.start-image {
 			width: 50%;
+			margin-top: 6em;
 		}
 		.title {
 			display: flex;
 			gap: 1rem;
 			margin-bottom: 0.5em;
-			z-index: 2;
+			// z-index: 2;
 			position: relative;
 			mix-blend-mode: difference;
 			span {
@@ -58,7 +62,7 @@
 			}
 		}
 		.content {
-			z-index: 2;
+			// z-index: 2;
 			position: relative;
 			mix-blend-mode: difference;
 			p {
@@ -77,6 +81,37 @@
 				line-height: 140%;
 				color: var(--pink);
 				margin-bottom: var(--step-1);
+			}
+		}
+		.content.meme-space {
+			padding-bottom: 20em;
+		}
+		.meme {
+			display: inline-flex;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			flex-direction: column;
+			border-radius: 0.4em;
+			width: 15vw;
+			max-width: 210px;
+			overflow: hidden;
+			cursor: grabbing;
+			box-shadow: 0px 45px 18px rgba(0, 0, 0, 0.01),
+				0px 25px 15px rgba(0, 0, 0, 0.05),
+				0px 11px 11px rgba(0, 0, 0, 0.09),
+				0px 3px 6px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+			.meme-header {
+				background-color: #f7f7f8;
+				color: #676767;
+				font-weight: 700;
+				font-size: var(--step--3);
+				line-height: 140%;
+				text-align: center;
+				padding: 0.625em 1.25em;
+			}
+			.meme-image {
+				border-radius: 0;
 			}
 		}
 	}
