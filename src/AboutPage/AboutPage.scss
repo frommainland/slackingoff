@@ -40,6 +40,9 @@
 			display: flex;
 			gap: 1rem;
 			margin-bottom: 0.5em;
+			z-index: 2;
+			position: relative;
+			mix-blend-mode: difference;
 			span {
 				font-family: 'kerozene';
 				font-style: normal;
@@ -55,6 +58,9 @@
 			}
 		}
 		.content {
+			z-index: 2;
+			position: relative;
+			mix-blend-mode: difference;
 			p {
 				font-size: var(--step-1);
 				line-height: 140%;

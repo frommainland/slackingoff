@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import './AboutPage.scss'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const ALink = ({ text, link }) => {
 	return (
@@ -11,11 +14,28 @@ const ALink = ({ text, link }) => {
 }
 
 const AboutPage = () => {
-	const { scrollY } = useScroll()
+	// const { scrollY } = useScroll()
 
-	useMotionValueEvent(scrollY, 'change', (latest) => {
-		console.log('Page scroll: ', latest)
-	})
+	// useMotionValueEvent(scrollY, 'change', (latest) => {
+	// 	console.log('Page scroll: ', latest)
+	// })
+	const startImgRef = useRef(null)
+	useEffect(() => {
+		const el = startImgRef.current
+		gsap.to(el, {
+			rotate: 5,
+			scale: 1.5,
+			y: -200,
+			scrollTrigger: {
+				trigger: el,
+				start: 'top, 80%',
+				end: 'top, 30%',
+				markers: true,
+				scrub: 1,
+			},
+		})
+	}, [])
+
 	return (
 		<main id="content-wrap">
 			<section className="top-start">
@@ -35,7 +55,7 @@ const AboutPage = () => {
 				<div className="content">
 					<p>这张群聊的截图就是这个项目的开始。</p>
 				</div>
-				<img src={require('../images/start.png')} />
+				<img src={require('../images/start.png')} ref={startImgRef} />
 			</section>
 			<section className="content-wrap">
 				<div className="title">
