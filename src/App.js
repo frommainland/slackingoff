@@ -3,6 +3,7 @@ import './rootCss.scss'
 import './font.css'
 import Lenis from "@studio-freight/lenis";
 import AboutPage from "./AboutPage/AboutPage";
+import HomePage from "./Hompage/HomePage";
 
 const lenis = new Lenis(
     {
@@ -25,7 +26,8 @@ requestAnimationFrame(raf)
 function App() {
     return (
         <div className="App">
-            <AboutPage />
+        <HomePage />
+            {/* <AboutPage /> */}
         </div>
     );
 }
