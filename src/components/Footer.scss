@@ -1,0 +1,22 @@
+.footer-wrap {
+	display: flex;
+	flex-direction: column;
+	height: 80dvh;
+	justify-content: center;
+	gap: var(--step-4);
+
+	svg {
+		width: var(--step-8);
+		align-self: center;
+	}
+	button {
+		font-size: var(--step--1);
+		text-align: center;
+		padding: 0.45em 0.85em;
+		border: 1px solid white;
+		display: inline-block;
+		align-self: center;
+		border-radius: 100px;
+        cursor: pointer;
+	}
+}
