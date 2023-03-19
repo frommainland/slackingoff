@@ -90,7 +90,7 @@ const AboutPage = () => {
 	}, [])
 
 	return (
-		<main id="content-wrap">
+		<main className="content-wrap">
 			<section className="top-start">
 				<p>这是2023年学习react做的第二个项目。</p>
 				<p>
