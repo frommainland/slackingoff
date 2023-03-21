@@ -2,7 +2,8 @@
 	width: 90%;
 	max-width: 1000px;
 	margin: 0 auto;
-    margin-top: var(--step-8);
+	margin-top: var(--step-8);
+	margin-bottom: 30dvh;
 	h1 {
 		font-weight: 600;
 		font-size: var(--step-1);
@@ -10,7 +11,7 @@
 		color: #ffffff;
 		margin-bottom: var(--step-1);
 	}
-    h2{
-        font-size: var(--step--1);
-    }
+	h2 {
+		font-size: var(--step--1);
+	}
 }

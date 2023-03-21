@@ -1,19 +1,30 @@
 .holidays {
 	font-weight: 600;
 	color: #ffffff;
+	.flipper {
+		position: absolute;
+		right: calc(50% + var(--step-4));
+		top: 50%;
+		transform: translateY(-50%);
+		width: 500px;
+		height: 570px;
+		border-radius: 500px 500px 20px 20px;
+		background-size: cover;
+	}
 	.nationalday-wrap {
 		height: 100dvh;
-        position: relative;
+		position: relative;
 		.nationalday {
-            position: absolute;
-            width: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translateY(-50%);
+			position: absolute;
+			width: 50%;
+			top: 50%;
+			left: 50%;
+			transform: translateY(-50%);
 			.holiday-details {
 				font-size: var(--step--2);
 				line-height: 140%;
 				margin-bottom: 0.5em;
+				color: var(--pink);
 			}
 			.timer-discription {
 				font-family: 'cn206';

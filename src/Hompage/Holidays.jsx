@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import './Holidays.scss'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Holidays = () => {
+	const flipperRef = useRef(null)
+	const triggerEl = useRef(null)
+	useEffect(() => {
+		const flipper = flipperRef.current
+		const trigger = triggerEl.current
+		gsap.fromTo(
+			flipper,
+			{ rotation: 0 },
+			{
+				rotation: 360,
+				scrollTrigger: {
+					trigger: flipper,
+					start: 'top, 50%',
+					end: 'bottom, 10%',
+					pin: flipper,
+					scrub: true,
+					markers: true,
+				},
+			}
+		)
+	}, [])
+
 	return (
-		<div className="holidays">
+		<div className="holidays" ref={triggerEl}>
 			<section className="nationalday-wrap">
 				<div className="nationalday">
 					<h1 className="holiday-details">
@@ -19,6 +44,11 @@ const Holidays = () => {
 						<span>10月7日（星期六）、10月8日（星期日）上班</span>
 					</div>
 				</div>
+				<div
+					className="flipper"
+					ref={flipperRef}
+					style={{ backgroundImage: 'url(img/1.jpg)' }}
+				></div>
 			</section>
 			<section className="nationalday-wrap">
 				<div className="nationalday">

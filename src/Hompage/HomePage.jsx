@@ -5,7 +5,7 @@ import Manifesto from './Manifesto'
 import Holidays from './Holidays'
 
 const HomePage = () => {
-	return (
+	return ( 
 		<main id="home-page">
 			<Top />
 			<Manifesto />
