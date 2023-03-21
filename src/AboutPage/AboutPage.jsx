@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const ALink = ({ text, link }) => {
 	return (
-		<a className="a-link" href={link}>
+		<a id="a-link" href={link}>
 			{text}
 		</a>
 	)

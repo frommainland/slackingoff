@@ -1,4 +1,59 @@
 .holidays {
-	height: 200dvh;
-	width: 100%;
+	font-weight: 600;
+	color: #ffffff;
+	.nationalday-wrap {
+		height: 100dvh;
+        position: relative;
+		.nationalday {
+            position: absolute;
+            width: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
+			.holiday-details {
+				font-size: var(--step--2);
+				line-height: 140%;
+				margin-bottom: 0.5em;
+			}
+			.timer-discription {
+				font-family: 'cn206';
+				font-size: var(--step-4);
+				line-height: 100%;
+				font-weight: 400;
+				margin-bottom: 0.5em;
+			}
+			.timer-wrap {
+				display: flex;
+				gap: var(--step-2);
+				margin-bottom: var(--step-3);
+				h1 {
+					font-family: 'kerozene';
+					font-size: var(--step-10);
+					line-height: 110%;
+					font-weight: 500;
+				}
+				p {
+					font-family: 'cn206';
+					font-weight: 400;
+					font-size: var(--step-8);
+					line-height: 100%;
+				}
+			}
+			.caveat-wrap {
+				display: flex;
+				flex-direction: row;
+				align-items: flex-start;
+				padding: 10px 20px;
+				gap: 10px;
+				span {
+					border: 1px solid #f27851;
+					border-radius: 100px;
+					font-size: var(--step--3);
+					line-height: 145%;
+					color: var(--orange);
+					padding: 0.625em 1.25em;
+				}
+			}
+		}
+	}
 }
