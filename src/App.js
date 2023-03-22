@@ -12,10 +12,6 @@ const lenis = new Lenis(
         direction: "vertical"
     })
 
-// lenis.on('scroll', (e) => {
-//     console.log(e.current)
-// })
-
 function raf(time) {
     lenis.raf(time)
     requestAnimationFrame(raf)

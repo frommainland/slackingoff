@@ -1,68 +1,75 @@
 .holidays {
 	font-weight: 600;
 	color: #ffffff;
-	.flipper {
-		position: absolute;
-		right: calc(50% + var(--step-4));
-		top:50%;
-		// transform: translateY(-50%);
-		width: 500px;
-		height: 570px;
-		border-radius: 500px 500px 20px 20px;
-		background-size: cover;
-	}
-	.nationalday-wrap {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: var(--step-4);
+	border-top: solid green 1px;
+	.flipper-wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		height: 100dvh;
-		position: relative;
-		.nationalday {
-			position: absolute;
-			width: 50%;
-			top: 50%;
-			left: 50%;
-			transform: translateY(-50%);
-			.holiday-details {
-				font-size: var(--step--2);
-				line-height: 140%;
-				margin-bottom: 0.5em;
-				color: var(--pink);
-			}
-			.timer-discription {
-				font-family: 'cn206';
-				font-size: var(--step-4);
-				line-height: 100%;
-				font-weight: 400;
-				margin-bottom: 0.5em;
-			}
-			.timer-wrap {
-				display: flex;
-				gap: var(--step-2);
-				margin-bottom: var(--step-3);
-				h1 {
-					font-family: 'kerozene';
-					font-size: var(--step-10);
-					line-height: 110%;
-					font-weight: 500;
+		.flipper {
+			width: 500px;
+			height: 570px;
+			border-radius: 500px 500px 20px 20px;
+			background-size: cover;
+		}
+	}
+
+	.holidays-content {
+		.nationalday-wrap {
+			height: 100dvh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.nationalday {
+				.holiday-details {
+					font-size: var(--step--2);
+					line-height: 140%;
+					margin-bottom: 0.5em;
+					color: var(--pink);
 				}
-				p {
+				.timer-discription {
 					font-family: 'cn206';
-					font-weight: 400;
-					font-size: var(--step-8);
+					font-size: var(--step-4);
 					line-height: 100%;
+					font-weight: 400;
+					margin-bottom: 0.5em;
 				}
-			}
-			.caveat-wrap {
-				display: flex;
-				flex-direction: row;
-				align-items: flex-start;
-				padding: 10px 20px;
-				gap: 10px;
-				span {
-					border: 1px solid #f27851;
-					border-radius: 100px;
-					font-size: var(--step--3);
-					line-height: 145%;
-					color: var(--orange);
-					padding: 0.625em 1.25em;
+				.timer-wrap {
+					display: flex;
+					gap: var(--step-2);
+					margin-bottom: var(--step-3);
+					h1 {
+						font-family: 'kerozene';
+						font-size: var(--step-10);
+						line-height: 110%;
+						font-weight: 500;
+					}
+					p {
+						font-family: 'cn206';
+						font-weight: 400;
+						font-size: var(--step-8);
+						line-height: 100%;
+					}
+				}
+				.caveat-wrap {
+					display: flex;
+					flex-direction: row;
+					align-items: flex-start;
+					padding: 10px 20px;
+					gap: 10px;
+					span {
+						border: 1px solid #f27851;
+						border-radius: 100px;
+						font-size: var(--step--3);
+						line-height: 145%;
+						color: var(--orange);
+						padding: 0.625em 1.25em;
+					}
 				}
 			}
 		}
