@@ -10,21 +10,17 @@ const Holidays = () => {
 	useEffect(() => {
 		const flipper = flipperRef.current
 		const trigger = triggerEl.current
-		gsap.fromTo(
-			flipper,
-			{ rotation: 0 },
-			{
-				rotation: 360,
-				scrollTrigger: {
-					trigger: flipper,
-					start: 'top, 50%',
-					end: 'bottom, 10%',
-					pin: flipper,
-					scrub: true,
-					markers: true,
-				},
-			}
-		)
+		gsap.to(flipper, {
+			rotation: 360,
+			scrollTrigger: {
+				trigger: flipper,
+				start: 'top, 50%',
+				end: 'bottom, 10%',
+				pin: flipper,
+				scrub: true,
+				markers: true,
+			},
+		})
 	}, [])
 
 	return (
