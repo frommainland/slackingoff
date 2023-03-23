@@ -42,17 +42,12 @@ const Holidays = () => {
 
 	return (
 		<div className="holidays">
-			<div className="flip-card-flex">
-				<div className="flip-card" ref={flipperRef}>
-					<div className="inner">
-						<div className="front">
-							{/* <img src="" alt="" /> */}
-						</div>
-						<div className="back">
-							{/* <img src="" alt="" /> */}
-						</div>
-					</div>
-				</div>
+			<div className="flipper-wrap">
+				<div
+					className="flipper"
+					ref={flipperRef}
+					style={{ backgroundImage: 'url(img/1.jpg)' }}
+				/>
 			</div>
 
 			<div className="holidays-content" ref={holidayRef}>
