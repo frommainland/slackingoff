@@ -13,12 +13,15 @@
 			width: 500px;
 			height: 570px;
 			perspective: 1000px;
+			transform: skew(12deg, 6deg);
+			background-color: transparent;
 			.inner {
 				position: relative;
 				width: 100%;
 				height: 100%;
+
 				transform-style: preserve-3d;
-                transition: transform 0.8s;
+				transition: transform 0.8s;
 				.front,
 				.back {
 					position: absolute;
@@ -34,13 +37,13 @@
 				}
 				.back {
 					background-color: green;
-                    transform: rotateY(180deg);
+					transform: rotateX(180deg);
 				}
 			}
 		}
 		.flip-card:hover {
 			.inner {
-				transform: rotateY(180deg);
+				transform: rotateX(180deg);
 			}
 		}
 	}
@@ -49,7 +52,7 @@
 		.nationalday-wrap {
 			height: 100dvh;
 			display: flex;
-			justify-content: center;
+			justify-content: flex-start;
 			align-items: center;
 			.nationalday {
 				.holiday-details {
