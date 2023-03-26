@@ -152,53 +152,28 @@ const Holidays = () => {
 		const flipper = flipperRef.current
 		const holiday = holidayRef.current
 		const card = cardRef.current
-		gsap.set(flipper, { perspective: 1000 })
-		gsap.fromTo(
-			card,
-			{ rotationX: 0 },
-			{
-				rotationX: 180 * 3,
-				scrollTrigger: {
-					trigger: holiday,
-					start: 'top top',
-					end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
-					scrub: true,
-				},
-			}
-		)
-
-		gsap.to(flipper, {
-			// rotateX:
-			// 	180 *
-			// 	((holiday.offsetHeight - window.innerHeight) /
-			// 		window.innerHeight),
-			// rotationX: 180 * 3,
+		gsap.to(card, {
+			rotationX: 360,
+			ease: 'none',
 			scrollTrigger: {
 				trigger: holiday,
 				start: 'top top',
-				// end: () => `+=${window.innerHeight}`,
 				end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
-				scrub: 1,
+				scrub: true,
+			},
+		})
+
+		gsap.to(flipper, {
+			scrollTrigger: {
+				trigger: holiday,
+				start: 'top top',
+				end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
+				scrub: true,
 				pin: flipper,
 				pinSpacing: false,
 			},
 		})
 	}, [])
-
-	// useEffect(() => {
-	// 	const flipper = flipperRef.current
-	// 	const holiday = holidayRef.current
-	// 	gsap.to(flipper, {
-	// 		scrollTrigger: {
-	// 			trigger: holiday,
-	// 			markers: true,
-	// 			scrub: 1,
-	// 			start: 'top top',
-	// 			end: () => `+=${window.innerHeight * 2}`,
-	// 			pin: flipper,
-	// 		},
-	// 	})
-	// }, [])
 
 	return (
 		<div className="holidays">
@@ -213,7 +188,7 @@ const Holidays = () => {
 						</div>
 						<div
 							className="back"
-							style={{ background: 'url(./img/1.jpg)' }}
+							style={{ background: 'url(./img/2.jpg)' }}
 						>
 							{/* <img src="" alt="" /> */}
 						</div>
@@ -225,9 +200,9 @@ const Holidays = () => {
 				<NextSun />
 				<NextSat />
 				<QingmingDay />
-				<LaborDay />
+				{/* <LaborDay />
 				<DragonBoatDay />
-				<NationalDay />
+				<NationalDay /> */}
 			</div>
 		</div>
 	)
