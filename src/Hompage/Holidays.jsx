@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import './Holidays.scss'
+import { motion, useInView } from 'framer-motion'
 import differenceInDays from 'date-fns/differenceInDays'
 import nextSaturday from 'date-fns/nextSaturday'
 import nextSunday from 'date-fns/nextSunday'
@@ -14,8 +15,10 @@ const NextSat = () => {
 		new Date(nextSat),
 		new Date(currentTime)
 	)
+    const ref = useRef(null)
+    const isInView = useInView(ref)
 	return (
-		<section className="nationalday-wrap">
+		<section className="nationalday-wrap" ref={ref}>
 			<div className="nationalday">
 				<h1 className="timer-discription">离周末双休还有</h1>
 				<div className="timer-wrap">
@@ -147,6 +150,7 @@ const Holidays = () => {
 	const flipperRef = useRef(null)
 	const cardRef = useRef(null)
 	const holidayRef = useRef(null)
+	const [bgImg, setBgImg] = useState('1.jpg')
 
 	useEffect(() => {
 		const flipper = flipperRef.current
@@ -173,7 +177,29 @@ const Holidays = () => {
 				pinSpacing: false,
 			},
 		})
+
+		// let distanceScrollY = holiday.getBoundingClientRect().top
+		// gsap.to(flipper, {
+		// 	scrollTrigger: {
+		// 		scrub: true,
+		// 		trigger: holiday,
+		// 		start: 'top top',
+		// 		end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
+		// 		onUpdate: () => {
+		// 			if (distanceScrollY == 200) {
+		// 				setBgImg('2.jpg')
+		// 			}
+		// 			console.log(distanceScrollY)
+		// 		},
+		// 	},
+		// })
+
 	}, [])
+	// window.scrollY
+	// window.pageYOffset
+	// holiday.getBoundingClientRect().top
+
+    const [NextSatInview, setNextSatInview] = useState(false)
 
 	return (
 		<div className="holidays">
@@ -182,7 +208,7 @@ const Holidays = () => {
 					<div className="inner" ref={cardRef}>
 						<div
 							className="front"
-							style={{ background: 'url(./img/1.jpg)' }}
+							style={{ background: `url(./img/${bgImg})` }}
 						>
 							{/* <img src="" alt="" /> */}
 						</div>
