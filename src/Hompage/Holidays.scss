@@ -33,6 +33,7 @@
 					flex-direction: column;
 					background-color: red;
 					border-radius: 500px 500px 60px 60px;
+					background-size: cover;
 				}
 				.back {
 					transform: rotateX(180deg);
@@ -63,7 +64,7 @@
 				}
 				.timer-wrap {
 					display: flex;
-					gap: var(--step-2);
+					gap: var(--step--2);
 					margin-bottom: var(--step-3);
 					h1 {
 						font-family: 'kerozene';
@@ -75,7 +76,7 @@
 						font-family: 'cn206';
 						font-weight: 400;
 						font-size: var(--step-8);
-						line-height: 100%;
+						line-height: 80%;
 					}
 				}
 				.caveat-wrap {

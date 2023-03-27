@@ -15,11 +15,12 @@ const NextSat = () => {
 		new Date(nextSat),
 		new Date(currentTime)
 	)
-    const ref = useRef(null)
-    const isInView = useInView(ref)
 	return (
-		<section className="nationalday-wrap" ref={ref}>
+		<section className="nationalday-wrap">
 			<div className="nationalday">
+				<h1 className="holiday-details">
+					{`最近的周六是${nextSat}`}。
+				</h1>
 				<h1 className="timer-discription">离周末双休还有</h1>
 				<div className="timer-wrap">
 					<h1>{diffIndays}</h1>
@@ -150,14 +151,15 @@ const Holidays = () => {
 	const flipperRef = useRef(null)
 	const cardRef = useRef(null)
 	const holidayRef = useRef(null)
-	const [bgImg, setBgImg] = useState('1.jpg')
+	const [frontBgImg, setFrontBgImg] = useState('1.jpg')
+	const [backBgImg, setBackBgImg] = useState('2.jpg')
 
 	useEffect(() => {
 		const flipper = flipperRef.current
 		const holiday = holidayRef.current
 		const card = cardRef.current
 		gsap.to(card, {
-			rotationX: 360,
+			rotationX: -180 * 5,
 			ease: 'none',
 			scrollTrigger: {
 				trigger: holiday,
@@ -179,27 +181,50 @@ const Holidays = () => {
 		})
 
 		// let distanceScrollY = holiday.getBoundingClientRect().top
-		// gsap.to(flipper, {
-		// 	scrollTrigger: {
-		// 		scrub: true,
-		// 		trigger: holiday,
-		// 		start: 'top top',
-		// 		end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
-		// 		onUpdate: () => {
-		// 			if (distanceScrollY == 200) {
-		// 				setBgImg('2.jpg')
-		// 			}
-		// 			console.log(distanceScrollY)
-		// 		},
-		// 	},
-		// })
+		gsap.to(flipper, {
+			scrollTrigger: {
+				scrub: true,
+				trigger: holiday,
+				start: 'top top',
+				end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
+				onUpdate: () => {
+					let distanceScrollY = Math.abs(
+						holiday.getBoundingClientRect().top
+					)
+					if (distanceScrollY < window.innerHeight) {
+						setFrontBgImg('1.jpg')
+					} else if (
+						distanceScrollY > window.innerHeight &&
+						distanceScrollY < window.innerHeight * 2.9
+					) {
+						setFrontBgImg('3.jpg')
+					} else if (
+						distanceScrollY > window.innerHeight * 3 &&
+						distanceScrollY < window.innerHeight * 3.5
+					) {
+						setFrontBgImg('5.jpg')
+					}
 
+					if (distanceScrollY < window.innerHeight * 2) {
+						setBackBgImg('2.jpg')
+					} else if (
+						distanceScrollY > window.innerHeight * 2 &&
+						distanceScrollY < window.innerHeight * 3.9
+					) {
+						setBackBgImg('4.jpg')
+					} else if (
+						distanceScrollY > window.innerHeight * 4 &&
+						distanceScrollY < window.innerHeight * 4.5
+					) {
+						setBackBgImg('6.jpg')
+					}
+				},
+			},
+		})
 	}, [])
 	// window.scrollY
 	// window.pageYOffset
 	// holiday.getBoundingClientRect().top
-
-    const [NextSatInview, setNextSatInview] = useState(false)
 
 	return (
 		<div className="holidays">
@@ -208,16 +233,16 @@ const Holidays = () => {
 					<div className="inner" ref={cardRef}>
 						<div
 							className="front"
-							style={{ background: `url(./img/${bgImg})` }}
-						>
-							{/* <img src="" alt="" /> */}
-						</div>
+							style={{
+								backgroundImage: `url(./img/${frontBgImg})`,
+							}}
+						></div>
 						<div
 							className="back"
-							style={{ background: 'url(./img/2.jpg)' }}
-						>
-							{/* <img src="" alt="" /> */}
-						</div>
+							style={{
+								backgroundImage: `url(./img/${backBgImg})`,
+							}}
+						></div>
 					</div>
 				</div>
 			</div>
@@ -226,9 +251,9 @@ const Holidays = () => {
 				<NextSun />
 				<NextSat />
 				<QingmingDay />
-				{/* <LaborDay />
+				<LaborDay />
 				<DragonBoatDay />
-				<NationalDay /> */}
+				<NationalDay />
 			</div>
 		</div>
 	)
