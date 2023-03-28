@@ -4,15 +4,20 @@ import { motion, useInView } from 'framer-motion'
 import differenceInDays from 'date-fns/differenceInDays'
 import nextSaturday from 'date-fns/nextSaturday'
 import nextSunday from 'date-fns/nextSunday'
+import format from 'date-fns/format'
+import zhCN from 'date-fns/locale/zh-CN'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const NextSat = () => {
 	const currentTime = new Date()
-	let nextSat = nextSaturday(new Date(currentTime))
+	let nextSat = format(nextSaturday(new Date(currentTime)), 'PPP', {
+		locale: zhCN,
+	})
+
 	const diffIndays = differenceInDays(
-		new Date(nextSat),
+		new Date(nextSaturday(new Date(currentTime))),
 		new Date(currentTime)
 	)
 	return (
@@ -33,14 +38,19 @@ const NextSat = () => {
 
 const NextSun = () => {
 	const currentTime = new Date()
-	let nextSun = nextSunday(new Date(currentTime))
+	let nextSun = format(nextSunday(new Date(currentTime)), 'PPP', {
+		locale: zhCN,
+	})
 	const diffIndays = differenceInDays(
-		new Date(nextSun),
+		new Date(nextSunday(new Date(currentTime))),
 		new Date(currentTime)
 	)
 	return (
 		<section className="nationalday-wrap">
 			<div className="nationalday">
+				<h1 className="holiday-details">
+					{`最近的周日是${nextSun}`}。
+				</h1>
 				<h1 className="timer-discription">离周末单休还有</h1>
 				<div className="timer-wrap">
 					<h1>{diffIndays}</h1>
