@@ -8,6 +8,7 @@ import format from 'date-fns/format'
 import zhCN from 'date-fns/locale/zh-CN'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SlowMo } from 'gsap/EasePack'
 gsap.registerPlugin(ScrollTrigger)
 
 const NextSat = () => {
@@ -67,9 +68,32 @@ const QingmingDay = () => {
 		new Date(2023, 4, 5),
 		new Date(currentTime)
 	)
+
+	const nationaldayRef = useRef(null)
+	useEffect(() => {
+		const nationalday = nationaldayRef.current
+		gsap.set(nationalday, {
+			transformOrigin: 'center center -200px',
+			backfaceVisibility: 'hidden',
+			rotateX: 270,
+			perspective: 1000,
+		})
+		gsap.to(nationalday, {
+			rotationX: 270 + 180,
+			ease: SlowMo.ease,
+			scrollTrigger: {
+				trigger: nationalday,
+				scrub: 1,
+				start: 'top 80%',
+				end: () => `+=${nationalday.offsetHeight * 0.8}`,
+				markers: true,
+			},
+		})
+	}, [])
+
 	return (
 		<section className="nationalday-wrap">
-			<div className="nationalday">
+			<div className="nationalday" ref={nationaldayRef}>
 				<h1 className="holiday-details">清明假期4月5日放假，共1天。</h1>
 				<h1 className="timer-discription">离清明假期还有</h1>
 				<div className="timer-wrap">

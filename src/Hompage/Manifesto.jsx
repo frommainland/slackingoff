@@ -36,7 +36,7 @@ const Manifesto = () => {
 				title.querySelectorAll('.char'),
 				{
 					'will-change': 'opacity',
-					opacity: 0.02,
+					opacity: 0.07,
 				},
 				{
 					ease: 'none',
