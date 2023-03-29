@@ -1,17 +1,14 @@
 .holidays {
 	font-weight: 600;
 	color: #ffffff;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: 1fr;
-	grid-column-gap: var(--step-4);
+	display: flex;
+	justify-content: center;
+	gap: var(--step-4);
 	.flip-card-flex {
-		grid-area: 1 / 1 / 2 / 2;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 100dvh;
-        justify-self: end;
 		.flip-card {
 			width: calc(var(--step-7) * 5);
 			height: calc(var(--step-9) * 4);
@@ -67,7 +64,6 @@
 	// }
 
 	.holidays-content {
-		grid-area: 1 / 2 / 2 / 3;
 		.nationalday-wrap {
 			height: 100dvh;
 			display: flex;

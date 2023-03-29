@@ -1,0 +1,25 @@
+<svg width="352" height="590" viewBox="0 0 352 590" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:overlay" clip-path="url(#clip0_345_2)">
+<g filter="url(#filter0_f_345_2)">
+<line y1="-5" x2="858.701" y2="-5" transform="matrix(0.28832 1.03095 -0.859937 0.393373 100 -170)" stroke="white" stroke-width="10"/>
+</g>
+<g filter="url(#filter1_f_345_2)">
+<line y1="-15" x2="858.701" y2="-15" transform="matrix(0.28832 1.03095 -0.859937 0.393373 8 -170)" stroke="white" stroke-width="30"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_345_2" x="85" y="-188.934" width="286.18" height="919.208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="7.5" result="effect1_foregroundBlur_345_2"/>
+</filter>
+<filter id="filter1_f_345_2" x="-52" y="-241.801" width="393.379" height="1017.08" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_345_2"/>
+</filter>
+<clipPath id="clip0_345_2">
+<rect width="346.392" height="590" fill="white" transform="matrix(1 0 0.00820296 0.999966 0 0)"/>
+</clipPath>
+</defs>
+</svg>

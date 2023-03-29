@@ -86,7 +86,6 @@ const QingmingDay = () => {
 				scrub: 1,
 				start: 'top 80%',
 				end: () => `+=${nationalday.offsetHeight * 0.8}`,
-				markers: true,
 			},
 		})
 	}, [])
@@ -185,6 +184,7 @@ const Holidays = () => {
 	const flipperRef = useRef(null)
 	const cardRef = useRef(null)
 	const holidayRef = useRef(null)
+	const shimmerRef = useRef(null)
 	const [frontBgImg, setFrontBgImg] = useState('1.jpg')
 	const [backBgImg, setBackBgImg] = useState('2.jpg')
 
@@ -192,6 +192,18 @@ const Holidays = () => {
 		const flipper = flipperRef.current
 		const holiday = holidayRef.current
 		const card = cardRef.current
+		const shimmer = shimmerRef.current
+
+		gsap.to(shimmer, {
+			backgroundPositionX: '300%',
+			scrollTrigger: {
+				trigger: holiday,
+				start: 'top top',
+				end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
+				scrub: true,
+			},
+		})
+
 		gsap.to(card, {
 			rotationX: -180 * 5,
 			ease: 'none',
@@ -270,7 +282,7 @@ const Holidays = () => {
 								backgroundImage: `url(./img/${frontBgImg})`,
 							}}
 						>
-							<div className="shimmer"></div>
+							<div className="shimmer" ref={shimmerRef}></div>
 						</div>
 						<div
 							className="back"
