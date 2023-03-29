@@ -10,8 +10,8 @@
 		align-items: center;
 		height: 100dvh;
 		.flip-card {
-			width: 500px;
-			height: 570px;
+			width: calc(var(--step-7) * 5);
+			height: calc(var(--step-9) * 4);
 			perspective: 1000px;
 			// transform: skew(12deg, 6deg);
 			transform: matrix(0.94, 0.34, -0.33, 0.94, 0, 0);
@@ -23,6 +23,7 @@
 				transform-style: preserve-3d;
 				.front,
 				.back {
+                    overflow: hidden;
 					position: absolute;
 					width: 100%;
 					height: 100%;
@@ -32,14 +33,43 @@
 					justify-content: center;
 					flex-direction: column;
 					background-color: red;
-					border-radius: 500px 500px 60px 60px;
+					border-radius: calc(var(--step-7) * 5)
+						calc(var(--step-7) * 5) var(--step-4) var(--step-4);
 					background-size: cover;
 					border: solid 1px rgba(255, 255, 255, 0.5);
 				}
 				.back {
 					transform: rotateX(180deg);
 				}
+				.front {
+					.shimmer {
+						// opacity: 0.2;
+						width: 100%;
+						height: 100%;
+						background: linear-gradient(
+							to right,
+							#f6f6f6 8%,
+							#f0f0f0 18%,
+							#f6f6f6 33%
+						);
+						background-size: 1200px 100%;
+						animation-duration: 2.2s;
+						animation-fill-mode: forwards;
+						animation-iteration-count: infinite;
+						animation-name: shimmer;
+						animation-timing-function: linear;
+					}
+				}
 			}
+		}
+	}
+
+	@keyframes shimmer {
+		0% {
+			background-position: -1200px 0;
+		}
+		100% {
+			background-position: 1200px 0;
 		}
 	}
 

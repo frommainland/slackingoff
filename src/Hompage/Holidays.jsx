@@ -214,7 +214,6 @@ const Holidays = () => {
 			},
 		})
 
-		// let distanceScrollY = holiday.getBoundingClientRect().top
 		gsap.to(flipper, {
 			scrollTrigger: {
 				scrub: true,
@@ -270,7 +269,9 @@ const Holidays = () => {
 							style={{
 								backgroundImage: `url(./img/${frontBgImg})`,
 							}}
-						></div>
+						>
+							<div className="shimmer"></div>
+						</div>
 						<div
 							className="back"
 							style={{
