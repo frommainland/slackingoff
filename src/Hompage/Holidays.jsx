@@ -70,25 +70,25 @@ const QingmingDay = () => {
 	)
 
 	const nationaldayRef = useRef(null)
-	useEffect(() => {
-		const nationalday = nationaldayRef.current
-		gsap.set(nationalday, {
-			transformOrigin: 'center center -200px',
-			backfaceVisibility: 'hidden',
-			rotateX: 270,
-			perspective: 1000,
-		})
-		gsap.to(nationalday, {
-			rotationX: 270 + 180,
-			ease: SlowMo.ease,
-			scrollTrigger: {
-				trigger: nationalday,
-				scrub: 1,
-				start: 'top 80%',
-				end: () => `+=${nationalday.offsetHeight * 0.8}`,
-			},
-		})
-	}, [])
+	// useEffect(() => {
+	// 	const nationalday = nationaldayRef.current
+	// 	gsap.set(nationalday, {
+	// 		transformOrigin: 'center center -200px',
+	// 		backfaceVisibility: 'hidden',
+	// 		rotateX: 270,
+	// 		perspective: 1000,
+	// 	})
+	// 	gsap.to(nationalday, {
+	// 		rotationX: 270 + 180,
+	// 		ease: SlowMo.ease,
+	// 		scrollTrigger: {
+	// 			trigger: nationalday,
+	// 			scrub: 1,
+	// 			start: 'top 80%',
+	// 			end: () => `+=${nationalday.offsetHeight * 0.8}`,
+	// 		},
+	// 	})
+	// }, [])
 
 	return (
 		<section className="nationalday-wrap">
@@ -185,6 +185,7 @@ const Holidays = () => {
 	const cardRef = useRef(null)
 	const holidayRef = useRef(null)
 	const shimmerRef = useRef(null)
+	const shimmerRef2 = useRef(null)
 	const [frontBgImg, setFrontBgImg] = useState('1.jpg')
 	const [backBgImg, setBackBgImg] = useState('2.jpg')
 
@@ -193,9 +194,19 @@ const Holidays = () => {
 		const holiday = holidayRef.current
 		const card = cardRef.current
 		const shimmer = shimmerRef.current
+		const shimmer2 = shimmerRef2.current
 
 		gsap.to(shimmer, {
-			backgroundPositionX: '300%',
+			backgroundPositionX: '500%',
+			scrollTrigger: {
+				trigger: holiday,
+				start: 'top top',
+				end: () => `+=${holiday.offsetHeight - window.innerHeight}`,
+				scrub: true,
+			},
+		})
+		gsap.to(shimmer2, {
+			backgroundPositionX: '500%',
 			scrollTrigger: {
 				trigger: holiday,
 				start: 'top top',
@@ -289,7 +300,9 @@ const Holidays = () => {
 							style={{
 								backgroundImage: `url(./img/${backBgImg})`,
 							}}
-						></div>
+						>
+							<div className="shimmer" ref={shimmerRef2}></div>
+						</div>
 					</div>
 				</div>
 			</div>

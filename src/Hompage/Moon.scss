@@ -1,0 +1,75 @@
+.board-wrap {
+	width: 1200px;
+	height: 500px;
+	background-color: #00020f;
+	color: #ffffff;
+	position: relative;
+	border-radius: var(--step-4);
+	margin: 0 auto;
+    overflow: hidden;
+	.moon {
+		/* image 15 */
+
+		position: absolute;
+		width: 900px;
+		height: 898.22px;
+		left: 150px;
+		top: -199px;
+
+		background: url('../images/moon12.png');
+	}
+	.board-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 64%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--step-0);
+		.salary-discription {
+			font-family: 'cn206';
+			font-weight: 400;
+			font-size: var(--step-1);
+			line-height: 100%;
+			letter-spacing: 0.2em;
+			text-align: center;
+		}
+		.salary-discription:before,
+		.salary-discription:after {
+			background-color: white;
+			content: '';
+			display: inline-block;
+			height: 1px;
+			position: relative;
+			vertical-align: middle;
+			width: 50%;
+		}
+		.salary-discription:before {
+			right: 0.5em;
+			margin-left: -50%;
+		}
+
+		.salary-discription:after {
+			left: 0.5em;
+			margin-right: -50%;
+		}
+		.timer-wrap {
+			display: flex;
+			gap: var(--step--2);
+			h1 {
+				font-family: 'kerozene';
+				font-size: var(--step-10);
+				line-height: 110%;
+				font-weight: 500;
+			}
+			p {
+				font-family: 'cn206';
+				font-weight: 400;
+				font-size: var(--step-8);
+				line-height: 80%;
+			}
+		}
+	}
+}
