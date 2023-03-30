@@ -1,12 +1,12 @@
 .board-wrap {
-	width: 1200px;
-	height: 500px;
+	aspect-ratio: 2.4;
+	height: calc(var(--step-7) * 5);
 	background-color: #00020f;
 	color: #ffffff;
 	position: relative;
 	border-radius: var(--step-4);
 	margin: 0 auto;
-    overflow: hidden;
+	overflow: hidden;
 	.moon {
 		/* image 15 */
 
@@ -29,9 +29,9 @@
 		align-items: center;
 		gap: var(--step-0);
 		.salary-discription {
-			font-family: 'cn206';
-			font-weight: 400;
-			font-size: var(--step-1);
+			// font-family: 'cn206';
+			font-weight: 700;
+			font-size: var(--step-0);
 			line-height: 100%;
 			letter-spacing: 0.2em;
 			text-align: center;
