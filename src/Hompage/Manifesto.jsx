@@ -11,8 +11,9 @@ const Manifesto = () => {
 	useEffect(() => {
 		Splitting()
 		const arr = gsap.utils.toArray(ref.current)
-		// console.log(arr)
+		console.log(arr)
 		arr.forEach((title) => {
+            console.log(title)
 			// gsap.fromTo(
 			// 	title,
 			// 	{

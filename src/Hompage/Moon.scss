@@ -1,18 +1,19 @@
 .board-wrap {
-    height: 80svh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	height: 60svh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	.board {
 		--height: calc(var(--step-7) * 5);
 		aspect-ratio: 2.4;
 		height: var(--height);
-		background-color: #00020f;
+		background-color: #192257;
 		color: #ffffff;
 		position: relative;
 		border-radius: var(--step-4);
 		margin: 0 auto;
 		overflow: hidden;
+		transform-origin: center top;
 		.moon {
 			aspect-ratio: 1;
 			position: absolute;
