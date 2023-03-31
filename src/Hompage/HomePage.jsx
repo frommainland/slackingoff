@@ -4,14 +4,16 @@ import Top from './Top'
 import Manifesto from './Manifesto'
 import Holidays from './Holidays'
 import Moon from './Moon'
+import BreakTime from './BreakTime'
 
 const HomePage = () => {
 	return (
 		<main id="home-page">
 			<Top />
-			<Manifesto />
-			<Holidays />
+			{/* <Manifesto />
+			<Holidays /> */}
 			<Moon />
+            <BreakTime />
 		</main>
 	)
 }

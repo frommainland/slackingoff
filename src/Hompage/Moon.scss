@@ -1,74 +1,123 @@
 .board-wrap {
-	aspect-ratio: 2.4;
-	height: calc(var(--step-7) * 5);
-	background-color: #00020f;
-	color: #ffffff;
-	position: relative;
-	border-radius: var(--step-4);
-	margin: 0 auto;
-	overflow: hidden;
-	.moon {
-		/* image 15 */
-
-		position: absolute;
-		width: 900px;
-		height: 898.22px;
-		left: 150px;
-		top: -199px;
-
-		background: url('../images/moon12.png');
-	}
-	.board-content {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 64%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--step-0);
-		.salary-discription {
-			// font-family: 'cn206';
-			font-weight: 700;
-			font-size: var(--step-0);
-			line-height: 100%;
-			letter-spacing: 0.2em;
-			text-align: center;
+    height: 80svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	.board {
+		--height: calc(var(--step-7) * 5);
+		aspect-ratio: 2.4;
+		height: var(--height);
+		background-color: #00020f;
+		color: #ffffff;
+		position: relative;
+		border-radius: var(--step-4);
+		margin: 0 auto;
+		overflow: hidden;
+		.moon {
+			aspect-ratio: 1;
+			position: absolute;
+			background-size: cover;
 		}
-		.salary-discription:before,
-		.salary-discription:after {
-			background-color: white;
-			content: '';
-			display: inline-block;
-			height: 1px;
-			position: relative;
-			vertical-align: middle;
-			width: 50%;
+		.phase5 {
+			--widthFactor: 0.8;
+			background-image: url('../images/moon5.png');
+			width: calc(var(--widthFactor) * var(--height));
+			left: calc(0.18 * var(--height));
+			top: 50%;
+			transform: translateY(-50%);
 		}
-		.salary-discription:before {
-			right: 0.5em;
-			margin-left: -50%;
+		.phase10 {
+			--widthFactor: 1.1;
+			background-image: url('../images/moon10.png');
+			width: calc(var(--widthFactor) * var(--height));
+			left: calc(0.22 * var(--height));
+			top: 50%;
+			transform: translateY(-50%);
 		}
-
-		.salary-discription:after {
-			left: 0.5em;
-			margin-right: -50%;
+		.phase12 {
+			--widthFactor: 1.32;
+			background-image: url('../images/moon12.png');
+			width: calc(var(--widthFactor) * var(--height));
+			left: calc(0.1 * var(--height));
+			top: 50%;
+			transform: translateY(-50%);
 		}
-		.timer-wrap {
+		.phase15 {
+			--widthFactor: 1.52;
+			background-image: url('../images/moon15.png');
+			width: calc(var(--widthFactor) * var(--height));
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.phase25 {
+			--widthFactor: 1.1;
+			background-image: url('../images/moon25.png');
+			width: calc(var(--widthFactor) * var(--height));
+			right: calc(0.1 * var(--height));
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.phase30 {
+			--widthFactor: 0.8;
+			background-image: url('../images/moon30.png');
+			width: calc(var(--widthFactor) * var(--height));
+			right: calc(0.18 * var(--height));
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.board-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 64%;
 			display: flex;
-			gap: var(--step--2);
-			h1 {
-				font-family: 'kerozene';
-				font-size: var(--step-10);
-				line-height: 110%;
-				font-weight: 500;
+			flex-direction: column;
+			align-items: center;
+			gap: var(--step-0);
+			.salary-discription {
+				// font-family: 'cn206';
+				font-weight: 700;
+				font-size: var(--step-0);
+				line-height: 100%;
+				letter-spacing: 0.2em;
+				text-align: center;
 			}
-			p {
-				font-family: 'cn206';
-				font-weight: 400;
-				font-size: var(--step-8);
-				line-height: 80%;
+			.salary-discription:before,
+			.salary-discription:after {
+				background-color: white;
+				content: '';
+				display: inline-block;
+				height: 1px;
+				position: relative;
+				vertical-align: middle;
+				width: 50%;
+			}
+			.salary-discription:before {
+				right: 0.5em;
+				margin-left: -50%;
+			}
+
+			.salary-discription:after {
+				left: 0.5em;
+				margin-right: -50%;
+			}
+			.timer-wrap {
+				display: flex;
+				gap: var(--step--2);
+				h1 {
+					font-family: 'kerozene';
+					font-size: var(--step-10);
+					line-height: 110%;
+					font-weight: 500;
+				}
+				p {
+					font-family: 'cn206';
+					font-weight: 400;
+					font-size: var(--step-8);
+					line-height: 80%;
+				}
 			}
 		}
 	}
