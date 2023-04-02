@@ -22,9 +22,11 @@ const calcDate = (targetDay) => {
 
 const scaleBase = 0.5
 const scaleFactor = 0.1
-const topMarker = 2.5
+const topMarker = 1.75
 
-const MoonItem = ({ item, index, targetDay, totalItem }) => {
+const brightFactor = 20
+
+const MoonItem = ({ item, index, targetDay, totalItem, moonAllRef }) => {
 	const [dayDiff, setDayDiff] = useState(null)
 	useEffect(() => {
 		setDayDiff(calcDate(targetDay))
@@ -34,17 +36,28 @@ const MoonItem = ({ item, index, targetDay, totalItem }) => {
 	const boardRef = useRef(null)
 	const moonRef = useRef(null)
 	const contentRef = useRef(null)
+
 	useEffect(() => {
 		const boardWrap = boardWrapRef.current
 		const board = boardRef.current
+		const scaleTopStart =
+			(window.innerHeight -
+				(board.offsetHeight +
+					(topMarker * (totalItem - 1) * window.innerHeight) / 100)) /
+				2 +
+			(index * topMarker * window.innerHeight * Math.sin(index / 5)) / 100
+
 		gsap.to(board, {
 			scrollTrigger: {
 				trigger: boardWrap,
 				pin: board,
 				pinSpacing: false,
 				scrub: 1,
-				start: `top ${topMarker * index}% `,
-				end: () => `+=${window.innerHeight * 0.8 * (5 - index)}`,
+				// start: `top ${topMarker * index}% + ${scaleTopStart}px `,
+				start: `top ${scaleTopStart}px `,
+				// end: () => `+=${window.innerHeight * 0.8 * (5 - index)}`,
+				endTrigger: moonAllRef.current,
+				end: 'bottom center',
 			},
 		})
 	}, [])
@@ -56,7 +69,10 @@ const MoonItem = ({ item, index, targetDay, totalItem }) => {
 		})
 		gsap.to(board, {
 			scale: scaleBase + scaleFactor * index,
-			filter: `brightness(${(totalItem - 1 + index) * 10}%)`,
+			// filter: `brightness(${(totalItem - 1 + index) * 7}%)`,
+			filter: `brightness(${
+				100 - (totalItem - 1 - index) * brightFactor
+			}%)`,
 			scrollTrigger: {
 				trigger: boardWrap,
 				scrub: 1,
@@ -65,7 +81,7 @@ const MoonItem = ({ item, index, targetDay, totalItem }) => {
 			},
 		})
 		gsap.to(moonRef.current, {
-			scale: 0.7,
+			scale: 0.85,
 			scrollTrigger: {
 				trigger: boardWrap,
 				scrub: 1,

@@ -9,13 +9,17 @@ import MoonItem from './MoonItem'
 gsap.registerPlugin(ScrollTrigger)
 
 let moonCardArray = [5, 10, 12, 15, 25, 30]
-console.log(moonCardArray.length)
 
 const Moon = () => {
+	const moonAllRef = useRef(null)
 	return (
-		<div>
+		<div
+			style={{ paddingBottom: '50svh', marginBottom: '50svh' }}
+			ref={moonAllRef}
+		>
 			{moonCardArray.map((item, index) => (
 				<MoonItem
+					moonAllRef={moonAllRef}
 					item={item}
 					key={index}
 					index={index}
