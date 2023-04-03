@@ -5,6 +5,7 @@ import Manifesto from './Manifesto'
 import Holidays from './Holidays'
 import Moon from './Moon'
 import BreakTime from './BreakTime'
+import RelaxGif from './RelaxGif'
 
 const HomePage = () => {
 	return (
@@ -14,6 +15,7 @@ const HomePage = () => {
 			<Holidays /> */}
 			<Moon />
             <BreakTime />
+            <RelaxGif />
 		</main>
 	)
 }
