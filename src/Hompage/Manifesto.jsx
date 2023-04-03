@@ -1,6 +1,8 @@
 import React from 'react'
 import './Manifesto.scss'
 import Splitting from 'splitting'
+import 'splitting/dist/splitting.css'
+import 'splitting/dist/splitting-cells.css'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -11,9 +13,9 @@ const Manifesto = () => {
 	useEffect(() => {
 		Splitting()
 		const arr = gsap.utils.toArray(ref.current)
-		console.log(arr)
+		// console.log(arr)
 		arr.forEach((title) => {
-            console.log(title)
+			// console.log(title)
 			// gsap.fromTo(
 			// 	title,
 			// 	{

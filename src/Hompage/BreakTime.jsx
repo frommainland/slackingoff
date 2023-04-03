@@ -1,5 +1,8 @@
+import React from 'react'
 import './BreakTime.scss'
 import Splitting from 'splitting'
+import 'splitting/dist/splitting.css'
+import 'splitting/dist/splitting-cells.css'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -9,11 +12,13 @@ const BreakTime = () => {
 	const ref = useRef(null)
 	useEffect(() => {
 		Splitting()
+		// console.log(ref.current)
 		const arr = gsap.utils.toArray(ref.current)
 		arr.forEach((title) => {
 			const words = [...title.querySelectorAll('.word')]
 
 			for (const word of words) {
+				// console.log(word)
 				const chars = word.querySelectorAll('.char')
 				const charsTotal = chars.length
 
@@ -90,7 +95,7 @@ const BreakTime = () => {
 							trigger: word,
 							start: 'top bottom+=40%',
 							end: 'top top+=15%',
-							scrub: true,
+							scrub: 1,
 						},
 					}
 				)
@@ -100,11 +105,11 @@ const BreakTime = () => {
 
 	return (
 		<div className="break-time-wrap">
-			<h2 className="content-wrap" data-splitting="" ref={ref}>
-				<span>现在是</span>
-				<span>摸鱼时间</span>
-				<span>专心摸鱼停止打工</span>
-			</h2>
+			<div className="content-wrap" data-splitting="" ref={ref}>
+				<p>现在是</p>
+				<p>摸鱼时间</p>
+				<p>专心摸鱼停止打工</p>
+			</div>
 		</div>
 	)
 }

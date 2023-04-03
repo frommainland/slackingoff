@@ -11,9 +11,9 @@ const HomePage = () => {
 	return (
 		<main id="home-page">
 			<Top />
-			{/* <Manifesto />
-			<Holidays /> */}
-			<Moon />
+			<Manifesto />
+			{/* <Holidays /> */}
+			{/* <Moon /> */}
             <BreakTime />
             <RelaxGif />
 		</main>
