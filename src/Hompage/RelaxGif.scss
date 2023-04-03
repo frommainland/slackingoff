@@ -2,6 +2,10 @@
 	position: relative;
 	height: 100svh;
 	width: 100%;
+	* {
+		border-radius: var(--step--3);
+		filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
+	}
 	.gif1 {
 		position: absolute;
 		width: calc(var(--step-7) * 5);
@@ -10,31 +14,31 @@
 	.gif2 {
 		position: absolute;
 		width: calc(var(--step-8) * 4);
-		left: calc(var(--step-7) * 2);
-		top: calc(var(--step-7));
+		left: calc(var(--step-2) * 12);
+		top: calc(var(--step-7)*2);
 	}
 	.gif3 {
 		position: absolute;
 		width: calc(var(--step-1) * 10);
-		left: calc(var(--step-1));
-		top: calc(var(--step-7) * 5);
+		left: calc(var(--step-0) * 10);
+		top: calc(var(--step-4) * 10);
 	}
 	.gif4 {
 		position: absolute;
 		width: calc(var(--step-8) * 4);
-		left: calc(var(--step-7) * 5);
+		left: calc(var(--step-6) * 12);
 		top: calc(var(--step-1));
 	}
 	.gif5 {
 		position: absolute;
 		width: calc(var(--step-4) * 10);
-		left: calc(var(--step-3) * 10);
+		left: calc(var(--step-5) * 10);
 		top: calc(var(--step-5) * 10);
 	}
 	.gif6 {
 		position: absolute;
-		width: calc(var(--step--1) * 10);
-		left: calc(var(--step-7) * 5);
-		top: calc(var(--step-2) * 10);
+		width: calc(var(--step-0) * 10);
+		left: calc(var(--step-5) * 11);
+		top: calc(var(--step-3) * 10);
 	}
 }

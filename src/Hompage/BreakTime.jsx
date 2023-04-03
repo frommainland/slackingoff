@@ -12,18 +12,20 @@ const BreakTime = () => {
 	const ref = useRef(null)
 	useEffect(() => {
 		Splitting()
-		// console.log(ref.current)
 		const arr = gsap.utils.toArray(ref.current)
 		arr.forEach((title) => {
 			const words = [...title.querySelectorAll('.word')]
 
 			for (const word of words) {
-				// console.log(word)
+				
 				const chars = word.querySelectorAll('.char')
 				const charsTotal = chars.length
 
-				chars.forEach((char) =>
-					gsap.set(char.parentNode, { perspective: 1000 })
+				chars.forEach((char) =>{
+                    console.log(char)
+                    gsap.set(char.parentNode, { perspective: 1000 })
+                }
+					
 				)
 
 				gsap.fromTo(
