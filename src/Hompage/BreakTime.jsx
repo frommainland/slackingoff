@@ -22,7 +22,7 @@ const BreakTime = () => {
 				const charsTotal = chars.length
 
 				chars.forEach((char) =>{
-                    console.log(char)
+                    // console.log(char)
                     gsap.set(char.parentNode, { perspective: 1000 })
                 }
 					

@@ -13,8 +13,8 @@ const HomePage = () => {
 		<main id="home-page">
 			<Top />
 			<Manifesto />
-			<Holidays />
-			<Moon />
+			{/* <Holidays /> */}
+			{/* <Moon /> */}
 			<BreakTime />
 			<RelaxGif />
 			<Rick />
