@@ -8,7 +8,6 @@ import format from 'date-fns/format'
 import zhCN from 'date-fns/locale/zh-CN'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SlowMo } from 'gsap/EasePack'
 gsap.registerPlugin(ScrollTrigger)
 
 const NextSat = () => {

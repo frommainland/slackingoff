@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import './RelaxGif.scss'
+import useWindowSize from '../helper/hooks/useWindowSize'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 
 const RelaxGif = () => {
+	const size = useWindowSize()
+	const speed = 0.5
+	const { scrollY } = useScroll()
+
+	const ref = useRef(null)
+	const isInView = useInView(ref)
+	const y = useTransform(scrollY, [100, 200], [0, 500])
+
 	return (
-		<div className='relax-wrap'>
-			<img
+		<div className="relax-wrap">
+			<motion.img
 				className="gif1"
 				src={require(`../images/relax/1.webp`)}
 				alt=""
+				ref={ref}
+				// whileInView={{ scale: scale }
+				style={{ scale: isInView ? scale : 1 }}
 			/>
-			<img
+			<motion.img
 				className="gif2"
 				src={require(`../images/relax/2.webp`)}
 				alt=""
+				// whileInView={{ y: y }}
 			/>
 			<img
 				className="gif3"

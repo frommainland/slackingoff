@@ -1,29 +1,52 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react'
 import './RelaxGif.scss'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import useWindowSize from '../helper/hooks/useWindowSize'
 
 const RelaxGif = () => {
+	const size = useWindowSize()
+	const { scrollY } = useScroll()
+	const ref = useRef(null)
+	const isInView = useInView(ref)
+	const [elementTop, setElementTop] = useState(null)
+	useLayoutEffect(() => {
+		const element = ref.current
+		// save our layout measurements in a function in order to trigger
+		// it both on mount and on resize
+		const onResize = () => {
+			// use getBoundingClientRect instead of offsetTop in order to
+			// get the offset relative to the viewport
+			setElementTop(element.getBoundingClientRect().top)
+		}
+		onResize()
+		console.log(elementTop)
+		window.addEventListener('resize', onResize)
+		return () => window.removeEventListener('resize', onResize)
+	}, [ref])
+	const y = useTransform(
+		scrollY,
+		[elementTop, elementTop + size.height],
+		[0, -1.2 * size.height]
+	)
+
 	return (
 		<div className="relax-wrap">
-			<img
+			<motion.img
 				className="gif1"
 				src={require(`../images/relax/1.webp`)}
 				alt=""
-				data-speed="2"
+				ref={ref}
+				style={{ y: y }}
 			/>
 			<img
 				className="gif2"
 				src={require(`../images/relax/2.webp`)}
 				alt=""
-				data-speed="1"
 			/>
 			<img
 				className="gif3"
 				src={require(`../images/relax/3.webp`)}
 				alt=""
-				data-speed="0.5"
 			/>
 			<img
 				className="gif4"
