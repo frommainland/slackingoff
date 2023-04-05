@@ -22,7 +22,7 @@ requestAnimationFrame(raf)
 function App() {
     return (
         <div className="App">
-        <HomePage />
+            <HomePage />
             {/* <AboutPage /> */}
         </div>
     );

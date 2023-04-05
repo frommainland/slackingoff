@@ -4,9 +4,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import Footer from '../components/Footer'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import userEvent from '@testing-library/user-event'
 gsap.registerPlugin(ScrollTrigger)
-
 
 const ALink = ({ text, link }) => {
 	return (

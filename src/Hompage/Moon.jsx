@@ -14,7 +14,11 @@ const Moon = () => {
 	const moonAllRef = useRef(null)
 	return (
 		<div
-			style={{ paddingBottom: '50svh', marginBottom: '50svh' }}
+			style={{
+				paddingBottom: '50svh',
+				marginBottom: '50svh',
+				marginTop: '50svh',
+			}}
 			ref={moonAllRef}
 		>
 			{moonCardArray.map((item, index) => (

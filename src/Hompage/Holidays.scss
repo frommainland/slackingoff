@@ -4,7 +4,7 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: 1fr;
-	grid-column-gap: var(--step-4);
+	// grid-column-gap: var(--step-4);
 	.flip-card-flex {
 		grid-area: 1 / 1 / 2 / 2;
 		display: flex;
@@ -15,7 +15,8 @@
 		.flip-card {
 			width: calc(var(--step-7) * 5);
 			height: calc(var(--step-9) * 4);
-			perspective: 1000px;
+			will-change: transform;
+			perspective: 800px;
 			// transform: skew(12deg, 6deg);
 			transform: matrix(0.94, 0.34, -0.33, 0.94, 0, 0);
 			background-color: transparent;

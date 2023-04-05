@@ -7,17 +7,20 @@ import Moon from './Moon'
 import BreakTime from './BreakTime'
 import RelaxGif from './RelaxGif'
 import Rick from './Rick'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
 	return (
 		<main id="home-page">
 			<Top />
 			<Manifesto />
-			{/* <Holidays /> */}
-			{/* <Moon /> */}
-			<BreakTime />
+			<Holidays />
+			<Moon />
+			<BreakTime p1="现在是" p2="摸鱼时间" p3="专心摸鱼，停止打工" />
 			<RelaxGif />
+			<BreakTime p1="摸鱼重要的是" p3="心态，心态和心态" />
 			<Rick />
+			<Footer />
 		</main>
 	)
 }

@@ -8,7 +8,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
-const BreakTime = () => {
+const BreakTime = ({ p1, p2 = null, p3 }) => {
 	const ref = useRef(null)
 	useEffect(() => {
 		Splitting()
@@ -17,16 +17,13 @@ const BreakTime = () => {
 			const words = [...title.querySelectorAll('.word')]
 
 			for (const word of words) {
-				
 				const chars = word.querySelectorAll('.char')
 				const charsTotal = chars.length
 
-				chars.forEach((char) =>{
-                    // console.log(char)
-                    gsap.set(char.parentNode, { perspective: 1000 })
-                }
-					
-				)
+				chars.forEach((char) => {
+					// console.log(char)
+					gsap.set(char.parentNode, { perspective: 1000 })
+				})
 
 				gsap.fromTo(
 					chars,
@@ -108,9 +105,9 @@ const BreakTime = () => {
 	return (
 		<div className="break-time-wrap">
 			<div className="content-wrap" data-splitting="" ref={ref}>
-				<p>现在是</p>
-				<p>摸鱼时间</p>
-				<p>专心摸鱼停止打工</p>
+				<p>{p1}</p>
+				<p>{p2}</p>
+				<p>{p3}</p>
 			</div>
 		</div>
 	)
