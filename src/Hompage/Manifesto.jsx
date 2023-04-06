@@ -39,15 +39,15 @@ const Manifesto = () => {
 				title.querySelectorAll('.char'),
 				{
 					'will-change': 'opacity',
-					opacity: 0.07,
+					opacity: 0.02,
 				},
 				{
 					ease: 'none',
 					opacity: 1,
-					stagger: 0.05,
+					stagger: 0.01,
 					scrollTrigger: {
 						trigger: title,
-						start: 'top 50%',
+						start: 'top 80%',
 						end: 'center 40%',
 						scrub: 1,
 					},

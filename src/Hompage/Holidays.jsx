@@ -28,7 +28,7 @@ const NextSat = () => {
 				</h1>
 				<h1 className="timer-discription">离周末双休还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays}</h1>
+					<h1>{diffIndays - 1}</h1>
 					<p>天</p>
 				</div>
 			</div>
@@ -53,7 +53,7 @@ const NextSun = () => {
 				</h1>
 				<h1 className="timer-discription">离周末单休还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays}</h1>
+					<h1>{diffIndays - 1}</h1>
 					<p>天</p>
 				</div>
 			</div>
@@ -64,39 +64,22 @@ const NextSun = () => {
 const QingmingDay = () => {
 	const currentTime = new Date()
 	const diffIndays = differenceInDays(
-		new Date(2023, 4, 5),
+		new Date(2023, 3, 5),
 		new Date(currentTime)
 	)
 
-	const nationaldayRef = useRef(null)
-	// useEffect(() => {
-	// 	const nationalday = nationaldayRef.current
-	// 	gsap.set(nationalday, {
-	// 		transformOrigin: 'center center -200px',
-	// 		backfaceVisibility: 'hidden',
-	// 		rotateX: 270,
-	// 		perspective: 1000,
-	// 	})
-	// 	gsap.to(nationalday, {
-	// 		rotationX: 270 + 180,
-	// 		ease: SlowMo.ease,
-	// 		scrollTrigger: {
-	// 			trigger: nationalday,
-	// 			scrub: 1,
-	// 			start: 'top 80%',
-	// 			end: () => `+=${nationalday.offsetHeight * 0.8}`,
-	// 		},
-	// 	})
-	// }, [])
-
 	return (
 		<section className="nationalday-wrap">
-			<div className="nationalday" ref={nationaldayRef}>
-				<h1 className="holiday-details">清明假期4月5日放假，共1天。</h1>
+			<div className="nationalday">
+				<h1 className="holiday-details">
+					清明假期2023年4月5日放假，共1天。
+				</h1>
 				<h1 className="timer-discription">离清明假期还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays}</h1>
-					<p>天</p>
+					<h1 className={`${diffIndays >= 0 ? 'kerozene' : 'cn206'}`}>
+						{diffIndays >= 0 ? diffIndays : '已过完'}
+					</h1>
+					<p>{diffIndays >= 0 ? '天' : null}</p>
 				</div>
 			</div>
 		</section>
@@ -106,19 +89,21 @@ const QingmingDay = () => {
 const LaborDay = () => {
 	const currentTime = new Date()
 	const diffIndays = differenceInDays(
-		new Date(2023, 5, 1),
+		new Date(2023, 4, 1),
 		new Date(currentTime)
 	)
 	return (
 		<section className="nationalday-wrap">
 			<div className="nationalday">
 				<h1 className="holiday-details">
-					劳动节假期4月29日至5月3日放假调休，共5天。
+					劳动节假期2023年4月29日至5月3日放假调休，共5天。
 				</h1>
 				<h1 className="timer-discription">离劳动节假期还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays}</h1>
-					<p>天</p>
+					<h1 className={`${diffIndays >= 0 ? 'kerozene' : 'cn206'}`}>
+						{diffIndays >= 0 ? diffIndays : '已过完'}
+					</h1>
+					<p>{diffIndays >= 0 ? '天' : null}</p>
 				</div>
 				<div className="caveat-wrap">
 					<span>节前，节后都需要连上6天班。</span>
@@ -131,19 +116,21 @@ const LaborDay = () => {
 const DragonBoatDay = () => {
 	const currentTime = new Date()
 	const diffIndays = differenceInDays(
-		new Date(2023, 6, 22),
+		new Date(2023, 5, 22),
 		new Date(currentTime)
 	)
 	return (
 		<section className="nationalday-wrap">
 			<div className="nationalday">
 				<h1 className="holiday-details">
-					端午节假期6月22日至24日放假调休，共3天。
+					端午节假期2023年6月22日至24日放假调休，共3天。
 				</h1>
 				<h1 className="timer-discription">离端午节假期还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays}</h1>
-					<p>天</p>
+					<h1 className={`${diffIndays >= 0 ? 'kerozene' : 'cn206'}`}>
+						{diffIndays >= 0 ? diffIndays : '已过完'}
+					</h1>
+					<p>{diffIndays >= 0 ? '天' : null}</p>
 				</div>
 				<div className="caveat-wrap">
 					<span>6月25日（星期日）上班。</span>
@@ -156,19 +143,21 @@ const DragonBoatDay = () => {
 const NationalDay = () => {
 	const currentTime = new Date()
 	const diffIndays = differenceInDays(
-		new Date(2023, 9, 29),
+		new Date(2023, 8, 29),
 		new Date(currentTime)
 	)
 	return (
 		<section className="nationalday-wrap">
 			<div className="nationalday">
 				<h1 className="holiday-details">
-					国庆假期9月29日至10月6日放假调休，共8天。
+					国庆假期2023年9月29日至10月6日放假调休，共8天。
 				</h1>
 				<h1 className="timer-discription">离国庆假期还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays}</h1>
-					<p>天</p>
+					<h1 className={`${diffIndays >= 0 ? 'kerozene' : 'cn206'}`}>
+						{diffIndays >= 0 ? diffIndays : '已过完'}
+					</h1>
+					<p>{diffIndays >= 0 ? '天' : null}</p>
 				</div>
 				<div className="caveat-wrap">
 					<span>节后需要连上7天班。</span>
