@@ -8,6 +8,9 @@ import BreakTime from './BreakTime'
 import RelaxGif from './RelaxGif'
 import Rick from './Rick'
 import Footer from '../components/Footer'
+import FooterButton from '../components/FooterButton'
+
+
 
 const HomePage = () => {
 	return (
@@ -20,7 +23,9 @@ const HomePage = () => {
 			<RelaxGif />
 			<BreakTime p1="摸鱼重要的是" p3="心态，心态和心态" />
 			<Rick />
-			<Footer />
+			<Footer>
+				<FooterButton text="☻ 关于网站 ☻" link="/about"/>
+			</Footer>
 		</main>
 	)
 }

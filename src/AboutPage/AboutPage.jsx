@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import './AboutPage.scss'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import Footer from '../components/Footer'
+import FooterButton from '../components/FooterButton'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
@@ -226,7 +227,9 @@ const AboutPage = () => {
 					</div>
 				</div>
 			</section>
-			<Footer />
+			<Footer>
+				<FooterButton text="☻ 返回首页 ☻" link="/"/>
+			</Footer>
 		</main>
 	)
 }

@@ -5,12 +5,14 @@
 	align-items: center;
 	margin-top: 10svh;
 	gap: var(--step-3);
+
 	video {
 		max-width: 1600px;
 		width: 70svw;
 		border-radius: 16px;
 	}
 	#a-link {
+		position: relative;
 		display: inline-block;
 		padding: 0.45em 0.85em;
 		border: 1px solid #fbcbcb;
@@ -20,7 +22,7 @@
 		font-size: var(--step--1);
 		line-height: 140%;
 		color: var(--pink);
-		margin-bottom: var(--step-1);
+		// margin-bottom: var(--step-1);
 		display: flex;
 		justify-content: center;
 		align-items: center;

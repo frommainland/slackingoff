@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.scss'
-import { motion } from 'framer-motion'
+
 
 const LogoSvg = () => {
 	return (
@@ -19,15 +19,11 @@ const LogoSvg = () => {
 	)
 }
 
-const Footer = () => {
+const Footer = ({ children }) => {
 	return (
 		<div className="footer-wrap">
 			<LogoSvg />
-			<motion.button
-				whileHover={{ backgroundColor: 'white', color: '#191816' }}
-			>
-				返回主页
-			</motion.button>
+			{children}
 		</div>
 	)
 }

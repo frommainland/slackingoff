@@ -19,17 +19,18 @@ const ALink = ({ text, link }) => {
 
 	return (
 		<motion.a
+			layout
 			id="a-link"
 			href={link}
 			ref={ref}
 			whileHover={{
-				width: divSize.width * 1.2,
+				// width: divSize.width * 1.2,
 				height: divSize.height * 1.2,
 				backgroundColor: '#FBCBCB',
 				color: '#191816',
 			}}
 		>
-			{text}
+			<motion.p layout>{text}</motion.p>
 		</motion.a>
 	)
 }
