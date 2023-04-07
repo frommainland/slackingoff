@@ -4,7 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 10svh;
-    gap: var(--step-3);
+	gap: var(--step-3);
 	video {
 		max-width: 1600px;
 		width: 70svw;
@@ -21,5 +21,8 @@
 		line-height: 140%;
 		color: var(--pink);
 		margin-bottom: var(--step-1);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }

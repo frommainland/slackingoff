@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import './Rick.scss'
+import { motion } from 'framer-motion'
 
 const ALink = ({ text, link }) => {
+	const [divSize, setDivSize] = useState({ width: 0, height: 0 })
+	const ref = useRef(null)
+	const getSize = () => {
+		setDivSize({
+			width: ref.current.clientWidth,
+			height: ref.current.offsetHeight,
+		})
+	}
+	useLayoutEffect(() => {
+		getSize()
+		window.addEventListener('resize', getSize)
+		return () => window.removeEventListener('resize', getSize)
+	}, [])
+
 	return (
-		<a id="a-link" href={link}>
-			{text}
-		</a>
+		<motion.a
+			layout
+			id="a-link"
+			href={link}
+			ref={ref}
+			whileHover={{ width: divSize.width * 1.1 }}
+		>
+			<motion.p layout>
+				{text}
+				{divSize.width} -{divSize.height}
+			</motion.p>
+		</motion.a>
 	)
 }
 
