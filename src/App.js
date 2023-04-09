@@ -5,7 +5,8 @@ import Lenis from "@studio-freight/lenis";
 import AboutPage from "./AboutPage/AboutPage";
 import HomePage from "./Hompage/HomePage";
 import NoMatch from "./404Page/NoMatch";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from 'framer-motion';
 
 const lenis = new Lenis(
     {
@@ -22,13 +23,16 @@ function raf(time) {
 requestAnimationFrame(raf)
 
 function App() {
+    const location = useLocation();
     return (
         <div className="App">
-            <Routes>
-                <Route index element={<HomePage />} />
-                <Route path="about" element={<AboutPage />} />
-                <Route path="*" element={<NoMatch />} />
-            </Routes>
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    <Route index element={<HomePage />} />
+                    <Route path="about" element={<AboutPage />} />
+                    <Route path="*" element={<NoMatch />} />
+                </Routes>
+            </AnimatePresence>
         </div>
     );
 }

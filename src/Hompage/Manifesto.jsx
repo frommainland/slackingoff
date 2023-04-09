@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const Manifesto = () => {
 	const ref = useRef(null)
 	useEffect(() => {
+		ScrollTrigger.refresh(true)
 		Splitting()
 		const arr = gsap.utils.toArray(ref.current)
 		// console.log(arr)
