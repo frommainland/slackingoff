@@ -7,8 +7,6 @@ import useScrollPosition from '../helper/hooks/useScrollPosition'
 const LogoSvg = () => {
 	return (
 		<motion.svg
-			exit={{ opacity: 0 }}
-			transition={{ duration: 3 }}
 			viewBox="0 0 120 232"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"

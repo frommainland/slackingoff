@@ -28,7 +28,7 @@ const NextSat = () => {
 				</h1>
 				<h1 className="timer-discription">离周末双休还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays - 1}</h1>
+					<h1>{diffIndays}</h1>
 					<p>天</p>
 				</div>
 			</div>
@@ -53,7 +53,7 @@ const NextSun = () => {
 				</h1>
 				<h1 className="timer-discription">离周末单休还有</h1>
 				<div className="timer-wrap">
-					<h1>{diffIndays - 1}</h1>
+					<h1>{diffIndays}</h1>
 					<p>天</p>
 				</div>
 			</div>

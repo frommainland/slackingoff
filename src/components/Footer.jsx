@@ -5,14 +5,8 @@ import { motion } from 'framer-motion'
 const LogoSvg = () => {
 	return (
 		<motion.svg
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{
-				opacity: 0,
-			}}
-			transition={{ duration: 3 }}
 			viewBox="0 0 120 232"
-			fill="none" 
+			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path

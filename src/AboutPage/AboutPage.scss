@@ -99,15 +99,15 @@
 			// display: flex;
 			.link-wrap {
 				display: inline-block;
-                margin-right: 4em;
-                margin-bottom: 1em;
+				margin-right: 4em;
+				margin-bottom: 1em;
 				p {
 					margin-bottom: 0.5em;
 				}
 				.link-item-wrap {
 					display: flex;
 					flex-wrap: wrap;
-                    gap: .5em;
+					gap: 0.5em;
 				}
 			}
 		}
@@ -145,4 +145,14 @@
 			}
 		}
 	}
+}
+
+#logoSvg {
+	width: var(--step-8);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	// align-self: center;
+	display: block;
 }
