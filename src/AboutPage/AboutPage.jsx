@@ -9,7 +9,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const transition = { duration: 1, ease: smooth }
+const transition = { duration: 3, ease: smooth }
 const LogoSvg = () => {
 	return (
 		<motion.svg
@@ -25,7 +25,7 @@ const LogoSvg = () => {
 				y: '-50%',
 			}}
 			animate={{ scale: 0.5, left: 200, top: 20 }}
-			transition={{ delay: 0.6, ...transition }}
+			transition={{ delay: 0.5, ...transition }}
 		>
 			<path
 				fillRule="evenodd"

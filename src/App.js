@@ -26,11 +26,13 @@ function App() {
     const location = useLocation();
     return (
         <div className="App">
-            <AnimatePresence mode="wait" onExitComplete={() => {
-                if (typeof window !== 'undefined') {
-                    window.scrollTo({ top: 0 })
-                }
-            }}>
+            <AnimatePresence mode="wait"
+                onExitComplete={() => {
+                    if (typeof window !== 'undefined') {
+                        window.scrollTo({ top: 0, behavior: 'instant' })
+                    }
+                }}
+            >
                 <Routes location={location} key={location.pathname}>
                     <Route index element={<HomePage />} />
                     <Route path="about" element={<AboutPage />} />

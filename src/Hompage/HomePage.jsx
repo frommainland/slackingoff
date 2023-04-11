@@ -12,12 +12,12 @@ import FooterButton from '../components/FooterButton'
 import { motion } from 'framer-motion'
 import { smooth } from '../helper/easing'
 
-const transition = { duration: 1, ease: smooth }
+const transition = { duration: 0.5, ease: smooth }
 
 const HomePage = () => {
 	return (
 		<motion.main
-			// id="home-page"
+			id="home-page"
 			// initial={{ opacity: 0 }}
 			// animate={{ opacity: 1 }}
 			// exit={{ opacity: 0 }}

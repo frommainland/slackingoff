@@ -77,7 +77,7 @@ const Top = () => {
 	}, [indicatorStop])
 
 	return (
-		<>
+		<motion.div exit={{ opacity: 0 }}>
 			<section className="top-start">
 				<h1>
 					{currentTime.toLocaleDateString('zh-CN', dateOptions)} ✺{' '}
@@ -113,7 +113,7 @@ const Top = () => {
 					/>
 				</div>
 			</section>
-		</>
+		</motion.div>
 	)
 }
 
