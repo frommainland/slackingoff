@@ -7,7 +7,7 @@ import HomePage from "./Hompage/HomePage";
 import NoMatch from "./404Page/NoMatch";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
-
+import ScrollToTop from "./helper/ScrollToTop";
 const lenis = new Lenis(
     {
         // lerp: 0.01,

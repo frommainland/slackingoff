@@ -1,16 +1,19 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import './AboutPage.scss'
 import { motion } from 'framer-motion'
 import Footer from '../components/Footer'
 import FooterButton from '../components/FooterButton'
 import { smooth } from '../helper/easing'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import LogoSvg from '../components/LogoSvg'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const transition = { duration: 3, ease: smooth }
-const LogoSvg = () => {
+const transition = { duration: 1, ease: smooth }
+
+const TopLogoSvg = () => {
 	return (
 		<motion.svg
 			id="logoSvg"
@@ -24,7 +27,10 @@ const LogoSvg = () => {
 				x: '-50%',
 				y: '-50%',
 			}}
-			animate={{ scale: 0.5, left: 200, top: 20 }}
+			animate={{
+				scale: 0.5,
+				top: '15vh',
+			}}
 			transition={{ delay: 0.5, ...transition }}
 		>
 			<path
@@ -121,12 +127,12 @@ const AboutPage = () => {
 
 	return (
 		<motion.div>
-			<LogoSvg />
+			<TopLogoSvg />
 			<motion.main
-				className="content-wrap"
+				className="main-wrap"
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
-				transition={{ delay: 1.2, ...transition }}
+				transition={{ delay: 2, ...transition }}
 			>
 				<section className="top-start">
 					<p>这是2023年学习react做的第二个项目。</p>
@@ -265,9 +271,26 @@ const AboutPage = () => {
 						</div>
 					</div>
 				</section>
-				<Footer>
+				{/* <Footer>
 					<FooterButton text="☻ 返回首页 ☻" link="/" />
-				</Footer>
+				</Footer> */}
+				<div className="footer-wrap">
+					<LogoSvg />
+					<motion.button
+						exit={{
+							opacity: 0,
+							trannsition: {
+								transition,
+							},
+						}}
+						whileHover={{
+							backgroundColor: 'white',
+							color: '#191816',
+						}}
+					>
+						<Link to="/">☻&nbsp;返回首页&nbsp;☻</Link>
+					</motion.button>
+				</div>
 			</motion.main>
 		</motion.div>
 	)

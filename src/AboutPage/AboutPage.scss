@@ -1,7 +1,7 @@
-.content-wrap {
+.main-wrap {
 	width: 1000px;
 	margin: 0 auto;
-	margin-top: 1.5em;
+	margin-top: 30vh;
 	color: white;
 	font-size: var(--step-1);
 	font-weight: 600;
@@ -9,11 +9,13 @@
 		font-size: var(--step--1);
 		font-style: normal;
 		line-height: 140%;
-		margin-bottom: 1em;
+		margin-bottom: 3em;
 		.vertical-line {
 			margin-top: 20px;
-			height: 65dvh;
-			margin-left: 40px;
+			height: 45dvh;
+			// margin-left: 40px;
+			left: 50%;
+			width: 2px;
 			border-left: 2px solid #474645;
 			position: relative;
 			.arrow {
@@ -31,8 +33,11 @@
 	.content-wrap.meme-index {
 		z-index: 10;
 	}
+	.content-wrap:last-of-type {
+		margin-bottom: 0;
+	}
 	.content-wrap {
-		margin-bottom: var(--step-8);
+		margin-bottom: var(--step-10);
 		position: relative;
 		img {
 			border-radius: 1em;

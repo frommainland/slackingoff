@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import './Top.scss'
-import { motion, useAnimationControls, useScroll } from 'framer-motion'
-import { smooth } from '../helper/easing'
-import useScrollPosition from '../helper/hooks/useScrollPosition'
-
-const transition = { duration: 1, ease: smooth }
+import React from 'react'
+import { motion } from 'framer-motion'
+import './LogoSvg.scss'
 
 const LogoSvg = () => {
 	return (
-		<motion.svg
+		<motion.svg className='footer'
 			viewBox="0 0 120 232"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
@@ -23,104 +19,4 @@ const LogoSvg = () => {
 	)
 }
 
-const Top = () => {
-	const currentTime = new Date()
-	const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' }
-	const weekdayOptions = { weekday: 'long' }
-
-	const [time, setTime] = useState(new Date())
-	useEffect(() => {
-		const timer = setInterval(() => {
-			setTime(new Date())
-		}, 1000)
-
-		return () => {
-			clearInterval(timer)
-		}
-	}, [time])
-
-	const [data, setData] = useState([])
-	const lat = 39.916668
-	const lon = 116.383331
-	const APIKEY = '37daaa8cb8f407eeace86c5708e3e9ad'
-	useEffect(() => {
-		const fetchData = async () => {
-			await fetch(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKEY}&lang=zh_cn&units=metric`
-			)
-				.then((res) => res.json())
-				.then((result) => {
-					setData(result)
-					// console.log(result)
-				})
-		}
-		fetchData()
-	}, [])
-
-	const [indicatorStop, setIndicatorStop] = useState(false)
-	const scrollPosition = useScrollPosition()
-	const controls = useAnimationControls()
-	useEffect(() => {
-		setIndicatorStop(scrollPosition >= 200 ? true : false)
-	}, [scrollPosition])
-	useEffect(() => {
-		!indicatorStop
-			? controls.start({
-					scaleY: ['0%', '100%', '100%', '0%'],
-					originY: [0, 0, 1, 1],
-					transition: {
-						ease: smooth,
-						times: [0, 0.5, 0.5, 1],
-						duration: 5,
-						repeat: Infinity,
-					},
-			  })
-			: controls.set({ scaleY: '0%' })
-	}, [indicatorStop])
-
-	return (
-		<motion.div
-		// initial={{ opacity: 0 }}
-		// animate={{ opacity: 1 }}
-		// transition={{ delay: 2, ...transition }}
-		>
-			<section className="top-start">
-				<h1>
-					{currentTime.toLocaleDateString('zh-CN', dateOptions)} ✺{' '}
-					{currentTime.toLocaleDateString('zh-CN', weekdayOptions)}
-				</h1>
-
-				{typeof data.main != 'undefined' ? (
-					<h1>
-						{data.weather[0].description} ✦ 当前{data.main.temp}°C
-					</h1>
-				) : (
-					<></>
-				)}
-				<h1>{time.toLocaleTimeString('zh-CN')}</h1>
-			</section>
-			<section className="logo-start">
-				<LogoSvg />
-				<div className="scroll-indicator">
-					<div className="scroll-indicator-base" />
-					<motion.div
-						className="scroll-indicator-anim"
-						animate={controls}
-						// animate={{
-						// 	scaleY: ['0%', '100%', '100%', '0%'],
-						// 	originY: [0, 0, 1, 1],
-						// }}
-						// transition={{
-						// 	ease: smooth,
-						// 	times: [0, 0.5, 0.5, 1],
-						// 	duration: 5,
-						// 	repeat: Infinity,
-						// }}
-					/>
-				</div>
-			</section>
-		</motion.div>
-	)
-}
-
-export default Top
+export default LogoSvg
