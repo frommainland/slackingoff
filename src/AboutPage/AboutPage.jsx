@@ -8,12 +8,15 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import LogoSvg from '../components/LogoSvg'
+import { footerLogoTopPosAtom } from '../components/LogoSvg'
+import { useAtom } from 'jotai'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const transition = { duration: 1, ease: smooth }
 
 const TopLogoSvg = () => {
+	const [top] = useAtom(footerLogoTopPosAtom)
 	return (
 		<motion.svg
 			id="logoSvg"
@@ -22,15 +25,15 @@ const TopLogoSvg = () => {
 			xmlns="http://www.w3.org/2000/svg"
 			initial={{
 				scale: 1,
-				top: '50%',
+				top: top,
 				left: '50%',
 				x: '-50%',
-				y: '-50%',
 			}}
 			animate={{
 				scale: 0.5,
-				top: '15vh',
+				top: '3vh',
 			}}
+			exit={{ opacity: 0 }}
 			transition={{ delay: 0.5, ...transition }}
 		>
 			<path
@@ -126,13 +129,16 @@ const AboutPage = () => {
 	}, [])
 
 	return (
-		<motion.div>
+		<>
 			<TopLogoSvg />
 			<motion.main
 				className="main-wrap"
 				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ delay: 2, ...transition }}
+				animate={{
+					opacity: 1,
+					transition: { delay: 1, ...transition },
+				}}
+				exit={{ opacity: 0 }}
 			>
 				<section className="top-start">
 					<p>这是2023年学习react做的第二个项目。</p>
@@ -271,28 +277,26 @@ const AboutPage = () => {
 						</div>
 					</div>
 				</section>
-				{/* <Footer>
-					<FooterButton text="☻ 返回首页 ☻" link="/" />
-				</Footer> */}
-				<div className="footer-wrap">
-					<LogoSvg />
-					<motion.button
-						exit={{
-							opacity: 0,
-							trannsition: {
-								transition,
-							},
-						}}
-						whileHover={{
-							backgroundColor: 'white',
-							color: '#191816',
-						}}
-					>
-						<Link to="/">☻&nbsp;返回首页&nbsp;☻</Link>
-					</motion.button>
-				</div>
 			</motion.main>
-		</motion.div>
+			<motion.div className="footer-wrap">
+				<LogoSvg />
+				<motion.button
+					exit={{
+						opacity: 0,
+						transition: {
+							delay: 0.1,
+							...transition,
+						},
+					}}
+					whileHover={{
+						backgroundColor: 'white',
+						color: '#191816',
+					}}
+				>
+					<Link to="/">☻&nbsp;返回首页&nbsp;☻</Link>
+				</motion.button>
+			</motion.div>
+		</>
 	)
 }
 

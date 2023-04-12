@@ -8,6 +8,9 @@ import NoMatch from "./404Page/NoMatch";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
 import ScrollToTop from "./helper/ScrollToTop";
+
+
+
 const lenis = new Lenis(
     {
         // lerp: 0.01,
@@ -26,7 +29,7 @@ function App() {
     const location = useLocation();
     return (
         <div className="App">
-            <AnimatePresence mode="wait"
+            <AnimatePresence mode="wait" initial={false}
                 onExitComplete={() => {
                     if (typeof window !== 'undefined') {
                         window.scrollTo({ top: 0, behavior: 'instant' })
