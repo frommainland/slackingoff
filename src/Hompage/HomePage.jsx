@@ -25,6 +25,8 @@ const HomePage = () => {
 				{/* <motion.div exit={{ opacity: 0 }}> */}
 				<LogoStart />
 				{/* </motion.div> */}
+
+
 				{/* 时间天气 */}
 				<motion.div
 					initial={{ opacity: 0 }}
@@ -57,7 +59,7 @@ const HomePage = () => {
 			</motion.main>
 			<div className="footer-wrap">
 				<LogoSvg />
-				<motion.button
+				{/* <motion.button
 					exit={{
 						opacity: 1,
 						trannsition: {
@@ -65,12 +67,13 @@ const HomePage = () => {
 						},
 					}}
 					whileHover={{
-						backgroundColor: 'white',
+						backgroundColor: '#FFFFFF',
 						color: '#191816',
 					}}
 				>
 					<Link to="/about">☻&nbsp;关于网站&nbsp;☻</Link>
-				</motion.button>
+				</motion.button> */}
+                <FooterButton text='☻&nbsp;关于网站&nbsp;☻' link='/about' />
 			</div>
 		</>
 	)

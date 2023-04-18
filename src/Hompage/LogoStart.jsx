@@ -15,7 +15,7 @@ const LogoSvg = () => {
 			viewBox="0 0 120 232"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			initial={{ top: top, opacity: 1 }}
+			initial={{ top: top, opacity: 1}}
 			animate={{
 				top: 0,
 				opacity: 1,

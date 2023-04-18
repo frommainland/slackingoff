@@ -289,7 +289,7 @@ const AboutPage = () => {
 						},
 					}}
 					whileHover={{
-						backgroundColor: 'white',
+						backgroundColor: '#FFFFFF',
 						color: '#191816',
 					}}
 				>

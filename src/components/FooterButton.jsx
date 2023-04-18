@@ -3,8 +3,22 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { smooth } from '../helper/easing'
 
+import { footerLogoTopPosAtom } from '../components/LogoSvg'
+import { atom, useAtom } from 'jotai'
+
+export const footerButtonClickAtom = atom(0)
+
 const transition = { duration: 0.5, ease: smooth }
 const FooterButton = ({ text, link }) => {
+	const [top] = useAtom(footerLogoTopPosAtom)
+	const [buttonClickTop, setButtonClickTop] = useAtom(footerLogoTopPosAtom)
+
+	function clickHandle() {
+		setButtonClickTop(top)
+		console.log(buttonClickTop)
+		alert('Hello!')
+	}
+
 	return (
 		<motion.button
 			exit={{
@@ -13,7 +27,11 @@ const FooterButton = ({ text, link }) => {
 					transition,
 				},
 			}}
-			whileHover={{ backgroundColor: 'white', color: '#191816' }}
+			whileHover={{
+				backgroundColor: 'rgba(255,255,255,100)',
+				color: '#191816',
+			}}
+			onClick={clickHandle}
 		>
 			<Link to={link}>{text}</Link>
 		</motion.button>
