@@ -20,12 +20,12 @@ const transition = { duration: 1, ease: smooth }
 const HomePage = () => {
 	return (
 		<>
+			<LogoStart />
 			<motion.main id="home-page">
 				{/* logo + 线 */}
 				{/* <motion.div exit={{ opacity: 0 }}> */}
-				<LogoStart />
-				{/* </motion.div> */}
 
+				{/* </motion.div> */}
 
 				{/* 时间天气 */}
 				<motion.div
@@ -73,7 +73,7 @@ const HomePage = () => {
 				>
 					<Link to="/about">☻&nbsp;关于网站&nbsp;☻</Link>
 				</motion.button> */}
-                <FooterButton text='☻&nbsp;关于网站&nbsp;☻' link='/about' />
+				<FooterButton text="☻&nbsp;关于网站&nbsp;☻" link="/about" />
 			</div>
 		</>
 	)

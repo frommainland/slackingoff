@@ -5,24 +5,29 @@ import { smooth } from '../helper/easing'
 import useScrollPosition from '../helper/hooks/useScrollPosition'
 import { footerLogoTopPosAtom } from '../components/LogoSvg'
 import { useAtom } from 'jotai'
+import { footerButtonClickAtom } from '../components/FooterButton'
 
 const transition = { duration: 1, ease: smooth }
 
 const LogoSvg = () => {
-	const [top] = useAtom(footerLogoTopPosAtom)
+	// const [top] = useAtom(footerLogoTopPosAtom)
+	const [buttonClickTop] = useAtom(footerButtonClickAtom)
 	return (
+		// <motion.div initial={{}}>
+		//     12343214
+		// </motion.div>
+
 		<motion.svg
+			id="logoSvg"
 			viewBox="0 0 120 232"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			initial={{ top: top, opacity: 1}}
+			initial={{ top: buttonClickTop, left: '50%', x: '-50%' }}
 			animate={{
-				top: 0,
-				opacity: 1,
+				top: 100,
 				transition: transition,
 			}}
 			exit={{ opacity: 0 }}
-			style={{ position: 'absolute' }}
 		>
 			<path
 				fillRule="evenodd"
@@ -56,7 +61,8 @@ const LogoStart = () => {
 			: controls.set({ scaleY: '0%' })
 	}, [indicatorStop])
 	return (
-		<section className="logo-start">
+		// <section className="logo-start">
+		<section>
 			<LogoSvg />
 			<motion.div
 				className="scroll-indicator"

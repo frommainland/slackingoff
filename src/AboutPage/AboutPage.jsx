@@ -10,13 +10,15 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import LogoSvg from '../components/LogoSvg'
 import { footerLogoTopPosAtom } from '../components/LogoSvg'
 import { useAtom } from 'jotai'
+import { footerButtonClickAtom } from '../components/FooterButton'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const transition = { duration: 1, ease: smooth }
 
 const TopLogoSvg = () => {
-	const [top] = useAtom(footerLogoTopPosAtom)
+	// const [top] = useAtom(footerLogoTopPosAtom)
+	const [top] = useAtom(footerButtonClickAtom)
 	return (
 		<motion.svg
 			id="logoSvg"
@@ -280,7 +282,7 @@ const AboutPage = () => {
 			</motion.main>
 			<motion.div className="footer-wrap">
 				<LogoSvg />
-				<motion.button
+				{/* <motion.button
 					exit={{
 						opacity: 0,
 						transition: {
@@ -294,7 +296,8 @@ const AboutPage = () => {
 					}}
 				>
 					<Link to="/">☻&nbsp;返回首页&nbsp;☻</Link>
-				</motion.button>
+				</motion.button> */}
+				<FooterButton text="☻&nbsp;返回首页&nbsp;☻" link="/" />
 			</motion.div>
 		</>
 	)
