@@ -9,7 +9,37 @@
 		font-size: var(--step--1);
 		font-style: normal;
 		line-height: 140%;
-		margin-bottom: 3em;
+		text-align: center;
+		width: 40ch;
+        margin: 0 auto;
+        margin-bottom: 3em;
+        p{
+            margin-bottom: var(--step--1);
+        }
+		.scroll-indicator {
+			position: relative;
+			// bottom: var(--step--1);
+			// top: calc(var(--step-8) * 2.3 + 10vh);
+			margin-top: var(--step-0);
+			left: 50%;
+			transform: translateX(-50%);
+			width: 1px;
+			// height: calc(100% - var(--step-8) * 2 - var(--step--1) * 2);
+			height: 40vh;
+			.scroll-indicator-base {
+				width: 100%;
+				height: 100%;
+				background-color: #302f2d;
+			}
+			.scroll-indicator-anim {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: white;
+				opacity: 0.5;
+			}
+		}
 		.vertical-line {
 			margin-top: 20px;
 			height: 45dvh;
@@ -54,6 +84,7 @@
 			margin-bottom: 0.5em;
 			// z-index: 2;
 			position: relative;
+            justify-content: center;
 			// mix-blend-mode: difference;
 			span {
 				font-family: 'kerozene';
@@ -72,6 +103,7 @@
 		.content {
 			// z-index: 2;
 			position: relative;
+            text-align: center;
 			// mix-blend-mode: difference;
 			p {
 				font-size: var(--step-1);
@@ -101,13 +133,14 @@
 			}
 		}
 		.content.link-list {
-			// display: flex;
+            margin-top: var(--step-5);
 			.link-wrap {
 				display: inline-block;
 				margin-right: 4em;
 				margin-bottom: 1em;
 				p {
 					margin-bottom: 0.5em;
+                    text-align: left;
 				}
 				.link-item-wrap {
 					display: flex;
@@ -155,9 +188,6 @@
 #logoSvg {
 	width: var(--step-8);
 	position: absolute;
-	// top: 50%;
-	// left: 50%;
-	// transform: translate(-50%, -50%);
-	// align-self: center;
-	display: block;
+	left: 50%;
+	transform: translateX(-50%);
 }

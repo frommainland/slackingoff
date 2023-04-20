@@ -20,13 +20,10 @@ const transition = { duration: 1, ease: smooth }
 const HomePage = () => {
 	return (
 		<>
+			{/* logo + 线 */}
 			<LogoStart />
+
 			<motion.main id="home-page">
-				{/* logo + 线 */}
-				{/* <motion.div exit={{ opacity: 0 }}> */}
-
-				{/* </motion.div> */}
-
 				{/* 时间天气 */}
 				<motion.div
 					initial={{ opacity: 0 }}
@@ -48,31 +45,21 @@ const HomePage = () => {
 					}}
 					exit={{ opacity: 0 }}
 				>
-					{/* <Manifesto />
-				<Holidays />
-				<Moon />
-				<BreakTime p1="现在是" p2="摸鱼时间" p3="专心摸鱼，停止打工" />
-				<RelaxGif />
-				<BreakTime p1="摸鱼重要的是" p3="心态，心态和心态" /> */}
+					<Manifesto />
+					<Holidays />
+					<Moon />
+					<BreakTime
+						p1="现在是"
+						p2="摸鱼时间"
+						p3="专心摸鱼，停止打工"
+					/>
+					<RelaxGif />
+					<BreakTime p1="摸鱼重要的是" p3="心态，心态和心态" />
 					<Rick />
 				</motion.div>
 			</motion.main>
 			<div className="footer-wrap">
 				<LogoSvg />
-				{/* <motion.button
-					exit={{
-						opacity: 1,
-						trannsition: {
-							transition,
-						},
-					}}
-					whileHover={{
-						backgroundColor: '#FFFFFF',
-						color: '#191816',
-					}}
-				>
-					<Link to="/about">☻&nbsp;关于网站&nbsp;☻</Link>
-				</motion.button> */}
 				<FooterButton text="☻&nbsp;关于网站&nbsp;☻" link="/about" />
 			</div>
 		</>

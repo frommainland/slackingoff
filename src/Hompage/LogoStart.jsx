@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './Top.scss'
+import './LogoStart.scss'
 import { motion, useAnimationControls, useScroll } from 'framer-motion'
 import { smooth } from '../helper/easing'
 import useScrollPosition from '../helper/hooks/useScrollPosition'
@@ -13,18 +13,14 @@ const LogoSvg = () => {
 	// const [top] = useAtom(footerLogoTopPosAtom)
 	const [buttonClickTop] = useAtom(footerButtonClickAtom)
 	return (
-		// <motion.div initial={{}}>
-		//     12343214
-		// </motion.div>
-
 		<motion.svg
 			id="logoSvg"
 			viewBox="0 0 120 232"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			initial={{ top: buttonClickTop, left: '50%', x: '-50%' }}
+			initial={{ top: buttonClickTop }}
 			animate={{
-				top: 100,
+				top: '10vh',
 				transition: transition,
 			}}
 			exit={{ opacity: 0 }}
@@ -61,8 +57,8 @@ const LogoStart = () => {
 			: controls.set({ scaleY: '0%' })
 	}, [indicatorStop])
 	return (
-		// <section className="logo-start">
-		<section>
+		<section className="logo-start">
+		{/* <section> */}
 			<LogoSvg />
 			<motion.div
 				className="scroll-indicator"

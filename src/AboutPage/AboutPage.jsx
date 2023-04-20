@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import './AboutPage.scss'
-import { motion } from 'framer-motion'
+import { motion, useAnimationControls, useScroll } from 'framer-motion'
+import useScrollPosition from '../helper/hooks/useScrollPosition'
 import Footer from '../components/Footer'
 import FooterButton from '../components/FooterButton'
 import { smooth } from '../helper/easing'
@@ -26,14 +27,16 @@ const TopLogoSvg = () => {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			initial={{
-				scale: 1,
-				top: top,
 				left: '50%',
 				x: '-50%',
+				scale: 1,
+				top: top,
 			}}
 			animate={{
 				scale: 0.5,
 				top: '3vh',
+				left: '50%',
+				x: '-50%',
 			}}
 			exit={{ opacity: 0 }}
 			transition={{ delay: 0.5, ...transition }}
@@ -130,6 +133,27 @@ const AboutPage = () => {
 		})
 	}, [])
 
+	const [indicatorStop, setIndicatorStop] = useState(false)
+	const scrollPosition = useScrollPosition()
+	const controls = useAnimationControls()
+	useEffect(() => {
+		setIndicatorStop(scrollPosition >= 200 ? true : false)
+	}, [scrollPosition])
+	useEffect(() => {
+		!indicatorStop
+			? controls.start({
+					scaleY: ['0%', '100%', '100%', '0%'],
+					originY: [0, 0, 1, 1],
+					transition: {
+						ease: smooth,
+						times: [0, 0.5, 0.5, 1],
+						duration: 5,
+						repeat: Infinity,
+					},
+			  })
+			: controls.set({ scaleY: '0%' })
+	}, [indicatorStop])
+
 	return (
 		<>
 			<TopLogoSvg />
@@ -147,9 +171,24 @@ const AboutPage = () => {
 					<p>
 						延续了去年的想法，在只有一个简单的列表信息时，怎么让设计符合内容并易于记忆。
 					</p>
-					<div className="vertical-line">
+					{/* <div className="vertical-line">
 						<div className="arrow"></div>
-					</div>
+					</div> */}
+					<motion.div
+						className="scroll-indicator"
+						initial={{ opacity: 0 }}
+						animate={{
+							opacity: 1,
+							transition: { ...transition, delay: 1 },
+						}}
+						exit={{ opacity: 0 }}
+					>
+						<div className="scroll-indicator-base" />
+						<motion.div
+							className="scroll-indicator-anim"
+							animate={controls}
+						/>
+					</motion.div>
 				</section>
 				<section className="content-wrap">
 					<div className="title">
@@ -196,10 +235,10 @@ const AboutPage = () => {
 					</div>
 					<div className="content rubin">
 						<p>网站最后的视频是Rick Rubin的一次采访。</p>
-						<ALink
+						{/* <ALink
 							text="Rick Rubin's stripped down approach to making music"
 							link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
-						/>
+						/> */}
 						<p>
 							刚看到这个视频的时候，我以为这是一个搞笑的段子，嘲讽了一些有“有品位”，但是做不了任何事情的人。
 						</p>
@@ -282,21 +321,6 @@ const AboutPage = () => {
 			</motion.main>
 			<motion.div className="footer-wrap">
 				<LogoSvg />
-				{/* <motion.button
-					exit={{
-						opacity: 0,
-						transition: {
-							delay: 0.1,
-							...transition,
-						},
-					}}
-					whileHover={{
-						backgroundColor: '#FFFFFF',
-						color: '#191816',
-					}}
-				>
-					<Link to="/">☻&nbsp;返回首页&nbsp;☻</Link>
-				</motion.button> */}
 				<FooterButton text="☻&nbsp;返回首页&nbsp;☻" link="/" />
 			</motion.div>
 		</>
