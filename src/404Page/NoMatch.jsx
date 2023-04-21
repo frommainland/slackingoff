@@ -19,7 +19,7 @@ const NoMatch = () => {
 				transition={transition}
 			>
 				<img
-					src={require('../images/tea-break.jpg')}
+					src={require('../images/tea-break.webp')}
 					alt="tea break time"
 				/>
 				<motion.button

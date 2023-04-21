@@ -21,7 +21,7 @@
 		}
 		.phase5 {
 			--widthFactor: 0.8;
-			background-image: url('../images/moon5.png');
+			background-image: url('../images/moon5.webp');
 			width: calc(var(--widthFactor) * var(--height));
 			left: calc(0.18 * var(--height));
 			top: 50%;
@@ -29,7 +29,7 @@
 		}
 		.phase10 {
 			--widthFactor: 1.1;
-			background-image: url('../images/moon10.png');
+			background-image: url('../images/moon10.webp');
 			width: calc(var(--widthFactor) * var(--height));
 			left: calc(0.22 * var(--height));
 			top: 50%;
@@ -37,7 +37,7 @@
 		}
 		.phase12 {
 			--widthFactor: 1.32;
-			background-image: url('../images/moon12.png');
+			background-image: url('../images/moon12.webp');
 			width: calc(var(--widthFactor) * var(--height));
 			left: calc(0.1 * var(--height));
 			top: 50%;
@@ -45,7 +45,7 @@
 		}
 		.phase15 {
 			--widthFactor: 1.52;
-			background-image: url('../images/moon15.png');
+			background-image: url('../images/moon15.webp');
 			width: calc(var(--widthFactor) * var(--height));
 			left: 50%;
 			top: 50%;
@@ -53,7 +53,7 @@
 		}
 		.phase25 {
 			--widthFactor: 1.1;
-			background-image: url('../images/moon25.png');
+			background-image: url('../images/moon25.webp');
 			width: calc(var(--widthFactor) * var(--height));
 			right: calc(0.1 * var(--height));
 			top: 50%;
@@ -61,7 +61,7 @@
 		}
 		.phase30 {
 			--widthFactor: 0.8;
-			background-image: url('../images/moon30.png');
+			background-image: url('../images/moon30.webp');
 			width: calc(var(--widthFactor) * var(--height));
 			right: calc(0.18 * var(--height));
 			top: 50%;

@@ -83,7 +83,7 @@ const MemeImage = ({ constraintsRef, item, top, left }) => {
 		>
 			<div className="meme-header">摸鱼人表情包 0{item}</div>
 			<img
-				src={require(`../images/meme-${item}.jpg`)}
+				src={require(`../images/meme-${item}.webp`)}
 				alt=""
 				className="meme-image"
 				draggable="false"
@@ -199,7 +199,7 @@ const AboutPage = () => {
 						<p>这张群聊的截图就是这个项目的开始。</p>
 					</div>
 					<img
-						src={require('../images/start.png')}
+						src={require('../images/start.webp')}
 						ref={startImgRef}
 						className="start-image"
 					/>
@@ -253,7 +253,7 @@ const AboutPage = () => {
 						</p>
 						<img
 							ref={rubinRef}
-							src={require('../images/rick_rubin.jpg')}
+							src={require('../images/rick_rubin.webp')}
 							alt="rick rubin portrait"
 						/>
 					</div>

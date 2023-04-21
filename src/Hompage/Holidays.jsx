@@ -236,31 +236,31 @@ const Holidays = () => {
 						holiday.getBoundingClientRect().top
 					)
 					if (distanceScrollY < window.innerHeight) {
-						setFrontBgImg('1.jpg')
+						setFrontBgImg('1.webp')
 					} else if (
 						distanceScrollY > window.innerHeight &&
 						distanceScrollY < window.innerHeight * 2.9
 					) {
-						setFrontBgImg('3.jpg')
+						setFrontBgImg('3.webp')
 					} else if (
 						distanceScrollY > window.innerHeight * 3 &&
 						distanceScrollY < window.innerHeight * 3.5
 					) {
-						setFrontBgImg('5.jpg')
+						setFrontBgImg('5.webp')
 					}
 
 					if (distanceScrollY < window.innerHeight * 2) {
-						setBackBgImg('2.jpg')
+						setBackBgImg('2.webp')
 					} else if (
 						distanceScrollY > window.innerHeight * 2 &&
 						distanceScrollY < window.innerHeight * 3.9
 					) {
-						setBackBgImg('4.jpg')
+						setBackBgImg('4.webp')
 					} else if (
 						distanceScrollY > window.innerHeight * 4 &&
 						distanceScrollY < window.innerHeight * 4.5
 					) {
-						setBackBgImg('6.jpg')
+						setBackBgImg('6.webp')
 					}
 				},
 			},
