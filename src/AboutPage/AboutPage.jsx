@@ -269,11 +269,11 @@ const AboutPage = () => {
 							<div className="link-item-wrap">
 								<ALink
 									text="上首幻灵体"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://www.ssfonts.com/shows/8/252.html"
 								/>
 								<ALink
 									text="KEROZENE"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://eliottgrunewald.xyz/kerozene"
 								/>
 							</div>
 						</div>
@@ -282,7 +282,7 @@ const AboutPage = () => {
 							<div className="link-item-wrap">
 								<ALink
 									text="tympanus"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://tympanus.net/codrops/2023/01/18/on-scroll-typography-animations/"
 								/>
 							</div>
 						</div>
@@ -291,7 +291,7 @@ const AboutPage = () => {
 							<div className="link-item-wrap">
 								<ALink
 									text="github"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://github.com/frommainland/slackingoff"
 								/>
 							</div>
 						</div>
@@ -300,19 +300,19 @@ const AboutPage = () => {
 							<div className="link-item-wrap">
 								<ALink
 									text="花与诗花和人"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://flowersandpoems.netlify.app"
 								/>
 								<ALink
 									text="互联网词语学习"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://new-jargon.netlify.app"
 								/>
 								<ALink
 									text="天王盖地虎，宝塔镇河妖"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://lastnameslang.netlify.app"
 								/>
 								<ALink
 									text="其他"
-									link="https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/"
+									link="https://frommainland.netlify.app"
 								/>
 							</div>
 						</div>
